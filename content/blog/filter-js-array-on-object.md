@@ -35,18 +35,11 @@ const picked = [
 
 const found = list.filter((item) => {
     const strItem = JSON.stringify(item);
-    const listOfFound = picked.map((pick) => {
-        const strPicked = JSON.stringify(pick);
+    const filter = picked.map((pick) => JSON.stringify(pick));
 
-        // here we now compare the two stringified objects
-        if (strItem === strPicked) {
-            return item;
-        }
-    });
-
-    // map will return an array which should only hold one item 
-    // assuming your initial list has no duplicates so we take the item at index 0
-    return listOfFound[0];
+    // if the item is part of the filter list, 
+    // will return true to include it as part of the found items
+    return filter.includes(strItem);
 });
 
 console.log(found);
