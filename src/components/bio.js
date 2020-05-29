@@ -10,8 +10,6 @@ import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
 
-import { rhythm } from "../utils/typography"
-
 function Bio() {
   return (
     <StaticQuery
@@ -24,7 +22,7 @@ function Bio() {
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               style={{
-                marginRight: rhythm(1 / 2),
+                marginRight: 0,
                 marginBottom: 0,
                 minWidth: 50,
                 borderRadius: `100%`,
@@ -34,8 +32,7 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong>.
-              {` `}
+              Written by <strong>{author}</strong>.{` `}
               <a href={`https://twitter.com/${social.twitter}`}>
                 Follow me on Twitter
               </a>

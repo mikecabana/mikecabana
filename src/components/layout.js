@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
 import Nav from "./nav"
 
@@ -11,15 +10,14 @@ class Layout extends React.Component {
 
     return (
       <Wrapper>
-        <Nav>
-          <Link to={"/projects"}>Projects</Link>
-          <Link to={"/blog"}>Blog</Link>
-        </Nav>
+        <Nav />
         <div>
-          <Header>
-            <h3>{title}</h3>
-          </Header>
-          <main>{children}</main>
+          <section className="section">
+            <Header>
+              <h3>{title}</h3>
+            </Header>
+            <main>{children}</main>
+          </section>
         </div>
         <Footer>
           © {new Date().getFullYear()}
@@ -33,6 +31,7 @@ class Layout extends React.Component {
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  padding: 20px 15%;
 `
 
 const Header = styled.div`

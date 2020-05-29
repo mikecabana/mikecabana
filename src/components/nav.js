@@ -1,17 +1,46 @@
 import React from "react"
+import { Link } from "gatsby"
+import ThemeToggle from "./theme-toggle"
 import styled from "styled-components"
 
-const Nav = props => <NavWrapper props={props}>{props.children}</NavWrapper>
+const Nav = props => {
+  return (
+    <NavLayout>
+      <LeftNavItems>
+        <Link to={'/'}>
+          <img src="/logo.svg" style={{ width: "75px" }} />
+        </Link>
+      </LeftNavItems>
 
-const NavWrapper = styled.div`
+      <RightNavItems>
+        <Link to={"/projects"}>Projects</Link>
+        <Link to={"/blog"}>Blog</Link>
+        <ThemeToggle />
+      </RightNavItems>
+    </NavLayout>
+  )
+}
+
+const NavLayout = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  
+`
 
-  font-size: ${props => props.props.fontSize || "15px"};
-  font-weight: ${props => props.props.fontWeight || "600"};
-  margin-top: ${props => props.props.marginTop};
-  margin-bottom: ${props => props.props.marginBottom};
+const RightNavItems = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+`
+
+const LeftNavItems = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 `
 
 export default Nav

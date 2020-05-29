@@ -3,5 +3,5 @@ import "typeface-montserrat"
 import "typeface-merriweather"
 
 // global style
-import "./src/styles/_theme.css"
-import "./src/styles/_global.css"
+import "./src/styles/_theme.scss"
+import "./src/styles/_global.scss"
