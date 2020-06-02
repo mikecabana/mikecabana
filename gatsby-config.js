@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     // edit below
-    title: `Mike Cabana - Software Developer`,
+    title: `Mike Cabana`,
     author: `Mike Cabana`,
     description: `Hi I'm Mike👋! I'm a software developer exploring from Montreal. My main focus is Angular and Node back-ends but I love to dabble with Containerization and DotNet.`,
     siteUrl: `https://mikecabana.com`,
@@ -71,14 +71,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Software Developer | Mike Cabana`,
+        short_name: `Mike Cabana`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#EEF5F9`,
+        theme_color: `#00CC99`,
         display: `minimal-ui`,
         // edit below
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/logo.svg`,
       },
     },
     // {

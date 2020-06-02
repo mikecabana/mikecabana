@@ -11,18 +11,13 @@ class Layout extends React.Component {
     return (
       <Wrapper>
         <Nav />
-        <div>
-          <section className="section">
-            <Header>
-              <h3>{title}</h3>
-            </Header>
-            <main>{children}</main>
-          </section>
-        </div>
+        <Header title={title} />
+
+        <main>{children}</main>
+
         <Footer>
-          © {new Date().getFullYear()}
-          {` `}
-          <a href="mailto:mikecabana@outlook.com">Michael Cabana</a>
+          <a href="mailto:mikecabana@outlook.com">Michael Cabana</a> ©{" "}
+          {new Date().getFullYear()}
         </Footer>
       </Wrapper>
     )
@@ -31,13 +26,18 @@ class Layout extends React.Component {
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  padding: 20px 15%;
 `
 
-const Header = styled.div`
-  height: 40px;
-  margin: 5px 15px;
-`
+const Header = props => (
+  <section className="hero">
+    <div className="hero-body">
+      <div className="container">
+        <h1 className="title">{props.title}</h1>
+        <h2 className="subtitle">{props.subtitle}</h2>
+      </div>
+    </div>
+  </section>
+)
 
 const Footer = styled.footer`
   text-align: center;

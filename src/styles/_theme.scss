@@ -29,3 +29,14 @@
   --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   --box-shadow-inset: 0px 0px 4px 0px inset rgba(0, 0, 0, 0.25);
 }
+
+$navbar-item-img-max-height: 3rem;
+
+@import "~bulma/sass/utilities/functions.sass";
+@import "~bulma/sass/utilities/initial-variables.sass";
+@import "~bulma/sass/utilities/derived-variables.sass";
+@import "~bulma/sass/utilities/mixins.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/layout/_all.sass";
+@import "~bulma/sass/components/navbar.sass";
