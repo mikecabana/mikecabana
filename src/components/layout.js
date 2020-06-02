@@ -11,7 +11,6 @@ class Layout extends React.Component {
     return (
       <Wrapper>
         <Nav />
-        <Header title={title} />
 
         <main>{children}</main>
 
@@ -27,17 +26,6 @@ class Layout extends React.Component {
 const Wrapper = styled.div`
   min-height: 100vh;
 `
-
-const Header = props => (
-  <section className="hero">
-    <div className="hero-body">
-      <div className="container">
-        <h1 className="title">{props.title}</h1>
-        <h2 className="subtitle">{props.subtitle}</h2>
-      </div>
-    </div>
-  </section>
-)
 
 const Footer = styled.footer`
   text-align: center;
