@@ -11,3 +11,16 @@ body {
 .is-transparent {
   background-color: transparent;
 }
+
+
+.styled-header {
+    color: var(--accent)
+}
+
+.navbar-end {
+    .navbar-item {
+        &:not(:first-child) {
+            margin-left: 16%;
+        }
+    }
+}

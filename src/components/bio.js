@@ -9,6 +9,7 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
 import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 function Bio() {
   return (
@@ -17,12 +18,12 @@ function Bio() {
       render={data => {
         const { author, social } = data.site.siteMetadata
         return (
-          <Container>
+          <Container style={{ padding: '25px 0'}}>
             <Image
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
               style={{
-                marginRight: 0,
+                marginRight: 10,
                 marginBottom: 0,
                 minWidth: 50,
                 borderRadius: `100%`,
@@ -31,12 +32,27 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
-              Written by <strong>{author}</strong>.{` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                Follow me on Twitter
-              </a>
-            </p>
+
+            <div>
+              <div>
+                {author}
+                {` `}
+              </div>
+              <div>
+                <a
+                  href={`https://twitter.com/${social.twitter}`}
+                  style={{ color: "var(--color)" }}
+                >
+                  <FontAwesomeIcon icon={["fab", "twitter"]} />
+                </a>
+                <a
+                  href={`https://github.com/${social.twitter}`}
+                  style={{ color: "var(--color)", marginLeft: "10px" }}
+                >
+                  <FontAwesomeIcon icon={["fab", "github"]} />
+                </a>
+              </div>
+            </div>
           </Container>
         )
       }}
@@ -46,7 +62,7 @@ function Bio() {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
       childImageSharp {
         fixed(width: 50, height: 50) {
           ...GatsbyImageSharpFixed

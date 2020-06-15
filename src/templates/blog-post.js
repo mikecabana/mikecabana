@@ -21,36 +21,39 @@ class BlogPostTemplate extends React.Component {
 
         <section className="section">
           <div className="container">
-            <h1>{post.frontmatter.title}</h1>
-            <p>{post.frontmatter.date}</p>
-            <MDXRenderer>{post.body}</MDXRenderer>
-            <hr />
-            <Bio />
+            <div className="columns">
+              <div className="column is-6 is-offset-3">
+                <h1>{post.frontmatter.title}</h1>
+                <Bio />
+                <p>{post.frontmatter.date}</p>
+                <MDXRenderer>{post.body}</MDXRenderer>
 
-            <ul
-              style={{
-                display: `flex`,
-                flexWrap: `wrap`,
-                justifyContent: `space-between`,
-                listStyle: `none`,
-                padding: 0,
-              }}
-            >
-              <li>
-                {previous && (
-                  <Link to={`blog${previous.fields.slug}`} rel="prev">
-                    ← {previous.frontmatter.title}
-                  </Link>
-                )}
-              </li>
-              <li>
-                {next && (
-                  <Link to={`blog${next.fields.slug}`} rel="next">
-                    {next.frontmatter.title} →
-                  </Link>
-                )}
-              </li>
-            </ul>
+                <ul
+                  style={{
+                    display: `flex`,
+                    flexWrap: `wrap`,
+                    justifyContent: `space-between`,
+                    listStyle: `none`,
+                    padding: 0,
+                  }}
+                >
+                  <li>
+                    {previous && (
+                      <Link to={`blog${previous.fields.slug}`} rel="prev">
+                        ← {previous.frontmatter.title}
+                      </Link>
+                    )}
+                  </li>
+                  <li>
+                    {next && (
+                      <Link to={`blog${next.fields.slug}`} rel="next">
+                        {next.frontmatter.title} →
+                      </Link>
+                    )}
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
       </Layout>

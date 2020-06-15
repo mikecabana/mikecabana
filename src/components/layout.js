@@ -15,7 +15,7 @@ class Layout extends React.Component {
         <main>{children}</main>
 
         <Footer>
-          <a href="mailto:mikecabana@outlook.com">Michael Cabana</a> ©{" "}
+          <a style={{ color: 'var(--color)' }} href="mailto:mikecabana@outlook.com">Michael Cabana</a> ©{" "}
           {new Date().getFullYear()}
         </Footer>
       </Wrapper>
