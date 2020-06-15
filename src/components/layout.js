@@ -4,7 +4,7 @@ import Nav from "./nav"
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { children } = this.props
     // const rootPath = `${__PATH_PREFIX__}/`
     // const blogPath = `${__PATH_PREFIX__}/blog/`
 
@@ -15,8 +15,13 @@ class Layout extends React.Component {
         <main>{children}</main>
 
         <Footer>
-          <a style={{ color: 'var(--color)' }} href="mailto:mikecabana@outlook.com">Michael Cabana</a> ©{" "}
-          {new Date().getFullYear()}
+          <a
+            style={{ color: "var(--color)" }}
+            href="mailto:mikecabana@outlook.com"
+          >
+            Michael Cabana
+          </a>{" "}
+          © {new Date().getFullYear()}
         </Footer>
       </Wrapper>
     )

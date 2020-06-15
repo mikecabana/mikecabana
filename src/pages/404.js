@@ -16,7 +16,12 @@ class NotFoundPage extends React.Component {
           <div className="container">
             <div className="columns">
               <div className="column is-4 is-offset-4">
-                <h1>Not Found 😢</h1>
+                <h1>
+                  Not Found{" "}
+                  <span role="img" aria-label="sad tear emoji">
+                    😢
+                  </span>
+                </h1>
                 <p>
                   You just hit a route that doesn&#39;t exist... the sadness.
                 </p>

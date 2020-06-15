@@ -5,7 +5,7 @@ import SEO from "../components/seo"
 
 class IndexPage extends React.Component {
   render() {
-    const { data } = this.props   
+    const { data } = this.props
     const posts = data.allMdx.edges
     return (
       <Layout location={this.props.location} title={""}>
@@ -34,6 +34,7 @@ class IndexPage extends React.Component {
               <div className="column is-3 has-text-centered">
                 <img
                   src="/profile-pic-hero.jpg"
+                  alt="profile pic"
                   style={{
                     width: "90%",
                     maxWidth: "300px",
@@ -56,6 +57,7 @@ class IndexPage extends React.Component {
         >
           <img
             src="/rect-over.svg"
+            alt=""
             style={{
               position: "absolute",
               top: 0,
@@ -69,6 +71,7 @@ class IndexPage extends React.Component {
           />
           <img
             src="/rect-under.svg"
+            alt=""
             style={{
               position: "absolute",
               top: 0,
@@ -139,7 +142,7 @@ class IndexPage extends React.Component {
                     className="column is-4 is-offset-2"
                   >
                     <Link
-                      style={{ color: `var(--color)`, textDecoration: 'none' }}
+                      style={{ color: `var(--color)`, textDecoration: "none" }}
                       to={`/blog${node.fields.slug}`}
                     >
                       <h3>{title}</h3>
@@ -193,11 +196,11 @@ export const pageQuery = graphql`
       }
     }
     site {
-        siteMetadata {
-            social {
-                twitter
-            }
+      siteMetadata {
+        social {
+          twitter
         }
+      }
     }
   }
 `
