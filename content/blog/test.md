@@ -1,5 +1,5 @@
 ---
-path: /
+path: /Sample
 date: 2020-07-14T15:49:05.632Z
 title: Test
 description: This is atest
