@@ -2,6 +2,9 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import LabelMaker from "../components/label-maker"
+import Button from "../components/button"
+import styled from "styled-components"
 
 class IndexPage extends React.Component {
   render() {
@@ -26,7 +29,9 @@ class IndexPage extends React.Component {
           <div className="container">
             <div className="columns is-vcentered">
               <div className="column is-3 is-offset-3">
-                <h1 className="title">HEY! I'M MIKE</h1>
+                <h1 className="title">
+                  HEY<LabelMaker>!</LabelMaker> I'M MIKE
+                </h1>
                 <h2 className="subtitle">
                   A software developer and web tinkerer
                 </h2>
@@ -87,52 +92,70 @@ class IndexPage extends React.Component {
 
         <section className="section">
           <div className="container">
+            {/* start of container */}
+
             <div className="columns">
-              <div className="column is-8 is-offset-2">
-                <h3 className="subtitle is-5 styled-header">
-                  A Little About Me
+              <div className="column is-6 is-offset-3">
+                <h3 className="title is-2">
+                  <LabelMaker>A little about me</LabelMaker>
                 </h3>
-
-                <div className="columns">
-                  <div className="column is-4">
-                    <h2>
-                      <span role="img" aria-label="maple leaf emoji">
-                        🍁
-                      </span>
-                    </h2>
-                    <h3 className="subtitle">
-                      I’m a full stack developer from Montreal, Canada
-                    </h3>
-                  </div>
-                  <div className="column is-4 ">
-                    <h2>
-                      <span role="img" aria-label="laptop emoji">
-                        💻
-                      </span>
-                    </h2>
-                    <h3 className="subtitle">
-                      Started my career developing web apps using Angular
-                    </h3>
-                  </div>
-                  <div className="column is-4">
-                    <h2>
-                      <span role="img" aria-label="wizard emoji">
-                        🧙‍♂️
-                      </span>
-                    </h2>
-                    <h3 className="subtitle">
-                      My goal is to become a full stack wizard!
-                    </h3>
-                  </div>
-                </div>
+                <History>
+                  <LabelMaker>I’m a full stack developer</LabelMaker> from
+                  Montreal, Canada
+                  <span role="img" aria-label="maple leaf emoji">
+                    🍁
+                  </span>
+                  . Not knowing what I wanted to pursue in college (as one does)
+                  I <LabelMaker>haphazardly took an HTML a course</LabelMaker>{" "}
+                  and discovered that the web was in my future. Years later and
+                  I've started my career{" "}
+                  <LabelMaker>
+                    leading a team developing Angular apps!
+                  </LabelMaker>
+                </History>
+                <History>
+                  Although I've started my career on the front-end, I've
+                  recently become interested in back-end frameworks like{" "}
+                  <LabelMaker>NestJS(Node + Express + Typescript)</LabelMaker>  
+                   and <LabelMaker>DotNet</LabelMaker>. Web technologies are
+                  vast, only second to the web itself and I've been lucky to
+                  dabble in some of those on my{" "}
+                  <LabelMaker>
+                    journey to becoming a full stack developer.
+                  </LabelMaker>
+                </History>
+                <History
+                  style={{
+                    textAlign: "right",
+                  }}
+                >
+                  <LabelMaker secret={true}>
+                    <span role="img" aria-label="snake-emoji">
+                      🐍
+                    </span>{" "}
+                    Python's pretty dope too!
+                  </LabelMaker>
+                </History>
+                <History style={{ textAlign: "center" }}>
+                  <span
+                    role="img"
+                    aria-label="snake-emoji"
+                    style={{ fontSize: "4rem" }}
+                  >
+                    ✌
+                  </span>
+                </History>
               </div>
             </div>
 
             <div className="columns">
               <div className="column is-8 is-offset-2">
-                <h3 className="subtitle is-5 styled-header">Recent Posts</h3>
+                <h3 className="title is-3">
+                  <LabelMaker>Read some of my stuff</LabelMaker>
+                </h3>
               </div>
             </div>
+
             <div className="columns">
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
@@ -145,13 +168,13 @@ class IndexPage extends React.Component {
                       style={{ color: `var(--color)`, textDecoration: "none" }}
                       to={`/blog${node.fields.slug}`}
                     >
-                      <h3>{title}</h3>
-                      <p
+                      <h2>{title}</h2>
+                      <p style={{fontWeight: 600}}
                         dangerouslySetInnerHTML={{
                           __html: node.frontmatter.description || node.excerpt,
                         }}
                       />
-                      <div style={{ textAlign: "right" }}>
+                      <div style={{ textAlign: "right", fontWeight: 700 }}>
                         <small>{node.frontmatter.date}</small>
                       </div>
                     </Link>
@@ -164,11 +187,13 @@ class IndexPage extends React.Component {
                 className="column is-8 is-offset-2"
                 style={{ textAlign: "right" }}
               >
-                <Link to="/blog/" className="styled-header">
-                  See the rest of my blog
+                <Link to="/blog/">
+                  <Button>See the rest of my blog</Button>
                 </Link>
               </div>
             </div>
+
+            {/* end of container */}
           </div>
         </section>
       </Layout>
@@ -177,6 +202,13 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
+
+const History = styled.p`
+  line-height: 2rem;
+  margin: 2rem 0;
+  font-size: 18px;
+  font-weight: 600;
+`
 
 export const pageQuery = graphql`
   query {
