@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Button from "../components/button"
+// import Button from "../components/button"
 
 class Blog extends React.Component {
   render() {
