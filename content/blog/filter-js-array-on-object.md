@@ -4,6 +4,8 @@ date: 2020-05-21T17:00:00.000Z
 title: Filter Arrays Using the Full Object
 description: How you can use the whole object itself to filter an objects array.
 ---
+![Photo by Maurício Mascaro](assets/pexels-maurício-mascaro-712786.jpg "camera-filter")
+
 <!--StartFragment-->
 
 Taking a quick stab at this you might think to yourself, shouldn't I just be able to run `[{ a:2 }, { a:3 }].filter(o => o.a === 3)` and get the object(s) I'm looking for out of it?  I thought so too.
