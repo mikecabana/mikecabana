@@ -4,7 +4,7 @@ date: 2020-05-21T17:00:00.000Z
 title: Filter Arrays Using the Full Object
 description: How you can use the whole object itself to filter an objects array.
 ---
-![Photo by Maurício Mascaro](assets/camera-filter.jpg "camera-filter")
+![Photo by Maurício Mascaro](/assets/camera-filter.jpg "camera-filter")
 
 <!--StartFragment-->
 
