@@ -26,7 +26,7 @@ export const Nav: FunctionComponent = () => {
     const isUnderMaintenance = useUnderMaintanence();
 
     return (
-        <header className="p-6 md:px-12 md:py-8">
+        <header className="px-6 py-2 md:px-12 md:py-8">
             <nav className="w-full flex flex-row justify-between items-center">
                 <div>
                     {/* logo */}
@@ -44,13 +44,7 @@ export const Nav: FunctionComponent = () => {
                                 </li>
                             ))}
 
-                        {isUnderMaintenance && (
-                            <li className="mx-4">
-                                <span className="rounded-3xl px-2 py-1 text-sm md:px-4 md:py-2 md:text-base bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-300 font-semibold">comming soon</span>
-                            </li>
-                        )}
-
-                        <li className="mx-4">
+                        <li className="ml-4">
                             <ThemeToggler />
                         </li>
                     </ul>
