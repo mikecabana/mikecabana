@@ -8,7 +8,7 @@ import '../styles/globals.scss';
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <UnderMaintenanceProvider>
-            <ThemeProvider attribute="class">
+            <ThemeProvider attribute="class" enableSystem={true}>
                 <BaseLayout>
                     <Component {...pageProps} />
                 </BaseLayout>
