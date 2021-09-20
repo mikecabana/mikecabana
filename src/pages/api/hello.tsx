@@ -9,4 +9,5 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	res.status(200).json({ name: 'John Doe' });
 };
 
-export default withSentry(handler);
+// export default withSentry(handler);
+export default handler;
