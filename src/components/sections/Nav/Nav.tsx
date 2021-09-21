@@ -57,30 +57,32 @@ export const Nav: FunctionComponent = () => {
                 <div>
                     {/* nav list */}
                     <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-500">
-                        {!isUnderMaintenance &&
-                            navLinks.map((nl, i) => (
-                                <li
-                                    key={i}
-                                    className="mx-8 text-sm dark:text-accent-500 text-primary-500 hover:underline"
-                                >
-                                    <Link href={nl.route}>
-                                        <a>{nl.label}</a>
-                                    </Link>
+                        {!isUnderMaintenance && (
+                            <>
+                                {navLinks.map((nl, i) => (
+                                    <li
+                                        key={i}
+                                        className="mx-8 text-sm dark:text-accent-500 text-primary-500 hover:underline"
+                                    >
+                                        <Link href={nl.route}>
+                                            <a>{nl.label}</a>
+                                        </Link>
+                                    </li>
+                                ))}
+
+                                <li className="ml-4">
+                                    <NavButton href="" type="github" />
                                 </li>
-                            ))}
 
-                        <li className="ml-4">
-                            <NavButton href="" type="github" />
-                        </li>
+                                <li className="ml-4">
+                                    <NavButton href="" type="twitter" />
+                                </li>
 
-                        <li className="ml-4">
-                            <NavButton href="" type="twitter" />
-                        </li>
-
-                        <li className="ml-4">
-                            <NavButton href="" type="linkedin" />
-                        </li>
-
+                                <li className="ml-4">
+                                    <NavButton href="" type="linkedin" />
+                                </li>
+                            </>
+                        )}
                         <li className="ml-4">
                             <ThemeToggler />
                         </li>
