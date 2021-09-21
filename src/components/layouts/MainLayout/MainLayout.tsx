@@ -5,7 +5,7 @@ export const MainLayout: FunctionComponent = ({ children }) => {
     return (
         <>
             <Nav />
-            <main className="container mx-auto max-w-3xl px-4">{children}</main>
+            <main className="container mx-auto max-w-6xl px-4">{children}</main>
         </>
     );
 };

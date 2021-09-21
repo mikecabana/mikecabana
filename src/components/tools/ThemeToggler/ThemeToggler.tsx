@@ -28,7 +28,7 @@ export const ThemeToggler: FunctionComponent<ThemeTogglerProps> = ({}) => {
 				<label className='flex items-center cursor-pointer'>
 					<input type='checkbox' checked={checked} onChange={handleToggle} className='hidden' />
 					<div className='p-1 bg-gray-300 dark:bg-gray-700 rounded-full w-8 mr-2 flex transition'>
-						<div className='h-3 w-3 bg-white rounded-full transition transform dark:translate-x-[100%]'></div>
+						<div className='h-3 w-3 bg-white dark:bg-accent-500 rounded-full transition transform dark:translate-x-[100%]'></div>
 					</div>
 					{/* <span>{theme}</span> */}
 					{checked ? (
