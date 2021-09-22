@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { MainLayout } from '../components/layouts/MainLayout';
+import { Projects } from '../components/sections/Projects';
 import { useUnderMaintanence } from '../lib/useUnderMaintenance';
 
 import styles from '../styles/Home.module.scss';
@@ -13,9 +14,9 @@ export default function Home() {
                 <>
                     <section className="py-24 relative">
                         {/* hero */}
-                        <h3 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title">
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title">
                             {'Hi, my name is Michael and'}{' '}
-                        </h3>
+                        </h2>
                         <h1 className="hero-big-text font-extrabold opacity-80">
                             {"I'm a"} <span className="text-accent-500">{'web'}</span> {'tinkerer.'}
                         </h1>
@@ -28,7 +29,10 @@ export default function Home() {
                         </div>
                     </section>
                     <section className="">{/* about me */}</section>
-                    <section>{/* projects */}</section>
+                    <section>
+                        {/* projects */}
+                        <Projects />
+                    </section>
                     <section>{/* experience */}</section>
                     <section>{/* get in touch */}</section>
                     <footer className="py-10 text-sm text-center dark:text-accent-500 text-primary-500">
