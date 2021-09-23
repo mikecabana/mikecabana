@@ -43,11 +43,17 @@ export const Projects: FunctionComponent<ProjectsProps> = ({}) => {
     // todo
     // split the array in 2 (floor) one for each column
 
+    const midway = Math.floor(projects.length / 2);
+
+    const colA = projects.slice(0, midway);
+    const colB = projects.slice(midway);
+
     return (
-        <div className="grid grid-cols-2 gap-12">
-            {projects.map((p, i) => (
-                <div key={i} className="">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 gap-12">
+                {colA.map((p, i) => (
                     <ProjectCard
+                        key={i}
                         label={p.label}
                         description={p.description}
                         extLink={p.extLink}
@@ -55,8 +61,21 @@ export const Projects: FunctionComponent<ProjectsProps> = ({}) => {
                         badges={p.badges}
                         disclaimer={p.disclaimer}
                     />
-                </div>
-            ))}
+                ))}
+            </div>
+            <div className="grid grid-cols-1 gap-12 items-start md:pt-12">
+                {colB.map((p, i) => (
+                    <ProjectCard
+                        key={i}
+                        label={p.label}
+                        description={p.description}
+                        extLink={p.extLink}
+                        tags={p.tags}
+                        badges={p.badges}
+                        disclaimer={p.disclaimer}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

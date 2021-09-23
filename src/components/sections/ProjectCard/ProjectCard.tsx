@@ -38,9 +38,9 @@ export const ProjectCard: FunctionComponent<ProjectCardProps> = ({
             <p className="mb-4">{description}</p>
 
             {tags && (
-                <div className="mb-4">
+                <div className="mb-4 flex flex-row items-center flex-wrap">
                     {tags.map((t, i) => (
-                        <span key={i} className="text-accent-500 bg-accent bg-opacity-10 rounded-md p-1 mr-2 text-sm">{t}</span>
+                        <span key={i} className="text-accent-500 bg-accent bg-opacity-10 rounded-md px-2 py-1 mr-2 mb-2 text-sm">{t}</span>
                     ))}
                 </div>
             )}

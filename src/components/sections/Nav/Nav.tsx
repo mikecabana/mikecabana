@@ -1,11 +1,8 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ThemeToggler } from '../../tools';
 import { useUnderMaintanence } from '../../../lib/useUnderMaintenance';
-
-import TwitterOutline from '../../svgs/twitter-outline.svg';
-import LinkedinOutline from '../../svgs/linkedin-outline.svg';
-import GithubOutline from '../../svgs/github-outline.svg';
+import { NavButton } from '../../ui/NavButton';
 
 const navLinks = [
     {
@@ -26,35 +23,49 @@ const navLinks = [
     },
 ];
 
-const NavButton: FunctionComponent<{ href: string; type: 'twitter' | 'linkedin' | 'github' }> = ({ href, type }) => {
-    return (
-        <a href={href} className="">
-            <div className="p-3 flex items-center justify-center transition hover:bg-primary hover:bg-opacity-10 dark:hover:bg-accent dark:hover:bg-opacity-10 rounded-full">
-                {type === 'twitter' && (
-                    <TwitterOutline className="w-5 h-5 dark:text-accent-500 fill-current inline-block" />
-                )}
-                {type === 'github' && (
-                    <GithubOutline className="w-5 h-5 dark:text-accent-500 fill-current inline-block" />
-                )}
-                {type === 'linkedin' && (
-                    <LinkedinOutline className="w-5 h-5 dark:text-accent-500 fill-current inline-block" />
-                )}
-            </div>
-        </a>
-    );
-};
-
 export const Nav: FunctionComponent = () => {
     const isUnderMaintenance = useUnderMaintanence();
 
+    const [scrollIsNotTop, setScrollIsNotTop] = useState(false);
+    const [isScrollingDown, setIsScrollingDown] = useState(false);
+
+    let lastScrollLocation = 0;
+
+    const handleScroll = (e) => {
+        // determine if we're at the top of the page
+        if (window.scrollY > 100) {
+            setScrollIsNotTop(true);
+        } else {
+            setScrollIsNotTop(false);
+        }
+
+        // determine if we are scrolling up or down
+        if (window.scrollY > lastScrollLocation) {
+            setIsScrollingDown(true);
+        } else {
+            setIsScrollingDown(false);
+        }
+        lastScrollLocation = window.scrollY;
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <header className="px-6 py-2 md:px-12 md:py-8">
-            <nav className="w-full flex flex-row justify-between items-center">
+        <header
+            className={`fixed top-0 left-0 right-0  backdrop-filter backdrop-blur-lg z-50 transition ${
+                scrollIsNotTop ? 'shadow-lg' : ''
+            } ${isScrollingDown ? 'transition duration-500 -translate-y-full' : ''}`}
+        >
+            <nav className="w-full h-full px-6 py-2 md:px-12 md:py-4 flex flex-row justify-between items-center bg-background-500 dark:bg-primary-500 bg-opacity-50 dark:bg-opacity-50">
                 <div className="dark:text-accent-500 text-primary-500">
                     {/* logo */}
                     <h1 className="logo text-4xl py-4">M I K E</h1>
                 </div>
-                <div>
+                <div className="hidden md:block">
                     {/* nav list */}
                     <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-500">
                         {!isUnderMaintenance && (
@@ -71,15 +82,18 @@ export const Nav: FunctionComponent = () => {
                                 ))}
 
                                 <li className="ml-4">
-                                    <NavButton href="" type="github" />
+                                    <NavButton href="https://github.com.com/mikecabana" type="github" />
                                 </li>
 
                                 <li className="ml-4">
-                                    <NavButton href="" type="twitter" />
+                                    <NavButton href="https://twitter.com.com/mikecabana" type="twitter" />
                                 </li>
 
                                 <li className="ml-4">
-                                    <NavButton href="" type="linkedin" />
+                                    <NavButton
+                                        href="https://ca.linkedin.com/in/michael-cabana-b5903a66"
+                                        type="linkedin"
+                                    />
                                 </li>
                             </>
                         )}

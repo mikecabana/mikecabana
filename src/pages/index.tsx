@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { MainLayout } from '../components/layouts/MainLayout';
+import { ExperienceCard } from '../components/sections/ExperienceCard';
 import { Projects } from '../components/sections/Projects';
 import { useUnderMaintanence } from '../lib/useUnderMaintenance';
-
-import styles from '../styles/Home.module.scss';
+import { Footer } from '../components/sections/Footer';
 
 export default function Home() {
     const isUnderMaintenance = useUnderMaintanence();
@@ -12,7 +12,7 @@ export default function Home() {
         <MainLayout>
             {!isUnderMaintenance && (
                 <>
-                    <section className="py-24 relative">
+                    <section className="relative h-screen flex flex-col justify-center">
                         {/* hero */}
                         <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title">
                             {'Hi, my name is Michael and'}{' '}
@@ -21,23 +21,102 @@ export default function Home() {
                             {"I'm a"} <span className="text-accent-500">{'web'}</span> {'tinkerer.'}
                         </h1>
                         <p className="max-w-lg">
-                            I’m a software developer with a focus on creating great web experinces with a goal to
-                            empower those needing to (re)claim their online pressence.
+                            I’m a software developer with a focus on creating great web experinces and a goal to empower
+                            those needing to <span className="text-accent-500">{'('}</span>re
+                            <span className="text-accent-500">{')'}</span>claim their online pressence.
                         </p>
-                        <div className="absolute right-0 top-1/3">
+                        <div className="absolute right-0 top-1/3 animate-bounce-slow">
                             <Image src="/upside-tri.png" width={300} height={300} alt="" />
                         </div>
                     </section>
-                    <section className="">{/* about me */}</section>
-                    <section>
-                        {/* projects */}
-                        <Projects />
+                    <section className="py-32">
+                        {/* about me */}
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            {'A little about me'}
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+                            <div>
+                                <p className="pb-8">
+                                    My name is Michael Cabana, a Montreal based software developer. I’ve been a
+                                    developer professionaly for just over 4 years.
+                                </p>
+                                <p className="pb-8">
+                                    I first got into web dev while in college where I was actually pursuing a career
+                                    path towards a Doctor of Optometry. I took an intro to web development class as an
+                                    elective and right away I knew this was the place for me!
+                                </p>
+                            </div>
+                            <div className="relative">
+                                <div className="absolute left-1/4 lg:left-1/3 -top-1/4 h-64 w-64 lg:w-72 lg:h-72 rounded-lg bg-accent bg-opacity-20"></div>
+                                <div className="relative h-64 w-64 mx-auto">
+                                    <Image
+                                        src="/profile-pic.png"
+                                        alt="portrait of Michael"
+                                        layout="fill"
+                                        objectFit="cover"
+                                        className="rounded-lg transform scale-x-[-1]"
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </section>
-                    <section>{/* experience */}</section>
-                    <section>{/* get in touch */}</section>
-                    <footer className="py-10 text-sm text-center dark:text-accent-500 text-primary-500">
-                        <span>mikecabana.com © {new Date().getFullYear()}</span>
-                    </footer>
+                    <section className="py-24">
+                        {/* projects */}
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            {'Projects'}
+                        </h2>
+                        <Projects />
+                        <div className="pt-24 text-center">
+                            <a
+                                className="text-primary-500 dark:text-accent-500 hover:underline"
+                                href="https://github.com/mikecabana"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Check out my github →
+                            </a>
+                        </div>
+                    </section>
+                    <section className="py-24">
+                        {/* experience */}
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            {'Experience'}
+                        </h2>
+                        <ExperienceCard
+                            employer="IEG America"
+                            title="Software Developer - Portal Team Lead"
+                            start="2017"
+                            end="Present"
+                            tags={['Angular', 'Typescript', 'SCSS', 'Bootstrap', 'Dotnet', 'Entity Framework', 'MSSQL']}
+                            responcibilities={[
+                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
+                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
+                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
+                            ]}
+                        />
+                    </section>
+                    <section className="py-24">
+                        {/* get in touch */}
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            {"Let's chat"}
+                        </h2>
+                        <h3 className="font-extrabold opacity-70 text-center get-in-touch-big-text">
+                            {'Get in Touch'}
+                        </h3>
+                        <p className="max-w-md mx-auto text-center mb-12">
+                            If your interested in working together, have any questions or just want to say hi, my inbox
+                            is always open!
+                        </p>
+                        <div className=" text-center">
+                            <a
+                                className="px-8 py-4 border border-accent-500 text-accent-500 rounded-lg transition hover:bg-accent hover:bg-opacity-20"
+                                href="mailto:mikeycabana@gmail.com"
+                            >
+                                Say hello!
+                            </a>
+                        </div>
+                    </section>
+                    <Footer />
                 </>
             )}
             {isUnderMaintenance && (

@@ -4,6 +4,9 @@ module.exports = {
     darkMode: 'class', // or 'media' or 'class' or false
     theme: {
         extend: {
+            animation: {
+                'bounce-slow': 'bounce 6s infinite'
+            },
             colors: {
                 'twitter-blue': '#1DA1F2',
                 'linkedin-blue': '#2867b2',
