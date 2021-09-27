@@ -1,8 +1,9 @@
 import { MutableRefObject, useEffect, useState } from 'react';
 
-export const useOnScreen = (ref: MutableRefObject<any>, rootMargin: string) => {
+export const useOnScreen = (ref: MutableRefObject<any>, rootMargin: string, once?: boolean) => {
 	// state for whether element is visible or not
 	const [isIntersecting, setIsIntersecting] = useState(false);
+	const [hasRun, setHasRun] = useState(false);
 
 	useEffect(() => {
 		const observer = new IntersectionObserver(
@@ -24,5 +25,5 @@ export const useOnScreen = (ref: MutableRefObject<any>, rootMargin: string) => {
 		};
 	}, []);
 
-	return isIntersecting;
+	return !hasRun ? isIntersecting : true;
 };

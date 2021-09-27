@@ -8,6 +8,6 @@ export function UnderMaintenanceProvider({ children }) {
     return <UnderMaintenanceContext.Provider value={isUnderMaintenance}>{children}</UnderMaintenanceContext.Provider>;
 }
 
-export function useUnderMaintanence() {
+export function useUnderMaintenance() {
     return useContext(UnderMaintenanceContext);
 }

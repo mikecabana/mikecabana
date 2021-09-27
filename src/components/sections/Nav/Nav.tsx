@@ -1,7 +1,7 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { ThemeToggler } from '../../tools';
-import { useUnderMaintanence } from '../../../lib/useUnderMaintenance';
+import { useUnderMaintenance } from '../../../lib/useUnderMaintenance';
 import { NavButton } from '../../ui/NavButton';
 import { MobileMenu } from '../../ui/MobileMenu';
 
@@ -25,7 +25,7 @@ const navLinks = [
 ];
 
 export const Nav: FunctionComponent = () => {
-	const isUnderMaintenance = useUnderMaintanence();
+	const isUnderMaintenance = useUnderMaintenance();
 
 	const [scrollIsNotTop, setScrollIsNotTop] = useState(false);
 	const [isScrollingDown, setIsScrollingDown] = useState(false);
