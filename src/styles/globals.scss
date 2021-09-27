@@ -65,3 +65,13 @@ h5 {
         margin-left: 1rem;
     }
 }
+
+.totem-pole {
+    &:after {
+        content: '';
+        height: 200px;
+        width: 1px;
+        border-left: 1px solid #00cc99;
+        margin-top: 2rem;
+    }
+}

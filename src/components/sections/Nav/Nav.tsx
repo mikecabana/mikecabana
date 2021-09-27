@@ -65,7 +65,7 @@ export const Nav: FunctionComponent = () => {
 					{/* logo */}
 					<h1 className='logo text-base lg:text-xl xl:text-4xl py-4'>M I K E</h1>
 				</div>
-				<div className='hidden md:block'>
+				<div className='hidden lg:block'>
 					{/* nav list */}
 					<ul className='list-none flex justify-end items-center dark:text-accent-500 text-primary-500'>
 						{!isUnderMaintenance && (
@@ -73,22 +73,22 @@ export const Nav: FunctionComponent = () => {
 								{navLinks.map((nl, i) => (
 									<li
 										key={i}
-										className='mx-8 text-sm dark:text-accent-500 text-primary-500 hover:underline'>
+										className='mx-4 text-sm dark:text-accent-500 text-primary-500 hover:underline'>
 										<Link href={nl.route}>
 											<a>{nl.label}</a>
 										</Link>
 									</li>
 								))}
 
-								<li className='ml-4'>
+								<li className='mx-2'>
 									<NavButton href='https://github.com.com/mikecabana' type='github' />
 								</li>
 
-								<li className='ml-4'>
+								<li className='mx-2'>
 									<NavButton href='https://twitter.com.com/mikecabana' type='twitter' />
 								</li>
 
-								<li className='ml-4'>
+								<li className='mx-2'>
 									<NavButton href='https://ca.linkedin.com/in/michael-cabana-b5903a66' type='linkedin' />
 								</li>
 							</>
@@ -98,7 +98,7 @@ export const Nav: FunctionComponent = () => {
 						</li>
 					</ul>
 				</div>
-				<div className='block md:hidden'>
+				<div className='block lg:hidden'>
 					<MobileMenu />
 				</div>
 			</nav>
