@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 }}
             />
             <UnderMaintenanceProvider>
-                <ThemeProvider attribute="class" enableSystem={true}>
+                <ThemeProvider attribute="class" enableSystem={true} defaultTheme="dark">
                     <BaseLayout>
                         <Component {...pageProps} />
                     </BaseLayout>
