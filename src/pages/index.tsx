@@ -43,7 +43,7 @@ export default function Home() {
                         </div>
                     </section>
                     <SectionWrapper>
-                        <section className="pb-32" id="about-me">
+                        <section className="py-16" id="about-me">
                             {/* about me */}
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
                                 {'A little about me'}
@@ -77,7 +77,7 @@ export default function Home() {
                         </section>
                     </SectionWrapper>
                     <SectionWrapper>
-                        <section className="pb-24" id="projects">
+                        <section className="py-12" id="projects">
                             {/* projects */}
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
                                 {'Projects'}
@@ -96,7 +96,7 @@ export default function Home() {
                         </section>
                     </SectionWrapper>
                     <SectionWrapper>
-                        <section className="pb-24" id="experience">
+                        <section className="py-12" id="experience">
                             {/* experience */}
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
                                 {'Experience'}
@@ -125,7 +125,7 @@ export default function Home() {
                         </section>
                     </SectionWrapper>
                     <SectionWrapper>
-                        <section className="pb-20" id="get-in-touch">
+                        <section className="py-12" id="get-in-touch">
                             {/* get in touch */}
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
                                 {"Let's chat"}
