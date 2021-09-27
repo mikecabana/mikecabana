@@ -81,11 +81,11 @@ export const Nav: FunctionComponent = () => {
 								))}
 
 								<li className='mx-2'>
-									<NavButton href='https://github.com.com/mikecabana' type='github' />
+									<NavButton href='https://github.com/mikecabana' type='github' />
 								</li>
 
 								<li className='mx-2'>
-									<NavButton href='https://twitter.com.com/mikecabana' type='twitter' />
+									<NavButton href='https://twitter.com/mikecabana' type='twitter' />
 								</li>
 
 								<li className='mx-2'>
