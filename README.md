@@ -1,6 +1,6 @@
 ## ToDo
 
-- [ ] mobile hamburger menu
+- [x] mobile hamburger menu
 - [ ] animate each section on scroll
 - [ ] descriptions
 
