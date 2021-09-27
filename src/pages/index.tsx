@@ -21,7 +21,7 @@ export default function Home() {
 						<h1 className='hero-big-text font-extrabold opacity-80'>
 							{"I'm a"} <span className='text-accent-500'>{'web'}</span> {'tinkerer.'}
 						</h1>
-						<p className='max-w-lg'>
+						<p className='max-w-xl'>
 							I’m a software developer with a focus on creating great web experinces and a goal to empower
 							those needing to <span className='text-accent-500'>{'('}</span>re
 							<span className='text-accent-500'>{')'}</span>claim their online pressence.
@@ -30,7 +30,7 @@ export default function Home() {
 							<Image src='/upside-tri.png' width={300} height={300} alt='' />
 						</div>
 					</section>
-					<section className='py-32'>
+					<section className='py-32' id="about-me">
 						{/* about me */}
 						<h2 className='font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12'>
 							{'A little about me'}
@@ -61,7 +61,7 @@ export default function Home() {
 							</div>
 						</div>
 					</section>
-					<section className='py-24'>
+					<section className='py-24' id="projects">
 						{/* projects */}
 						<h2 className='font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12'>
 							{'Projects'}
@@ -77,7 +77,7 @@ export default function Home() {
 							</a>
 						</div>
 					</section>
-					<section className='py-24'>
+					<section className='py-24' id="experience">
 						{/* experience */}
 						<h2 className='font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12'>
 							{'Experience'}
@@ -95,7 +95,7 @@ export default function Home() {
 							]}
 						/>
 					</section>
-					<section className='py-24'>
+					<section className='py-24' id="get-in-touch">
 						{/* get in touch */}
 						<h2 className='font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12'>
 							{"Let's chat"}
