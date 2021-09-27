@@ -22,7 +22,7 @@ const navLinks = [
 
 const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' }[] = [
     {
-        href: 'https://github.com.com/mikecabana',
+        href: 'https://github.com/mikecabana',
         type: 'github',
     },
     {
