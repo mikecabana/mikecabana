@@ -3,12 +3,13 @@ import TwitterOutline from '../../svgs/twitter-outline.svg';
 import LinkedinOutline from '../../svgs/linkedin-outline.svg';
 import GithubOutline from '../../svgs/github-outline.svg';
 
-export const NavButton: FunctionComponent<{ href: string; type: 'twitter' | 'linkedin' | 'github' }> = ({
+export const NavButton: FunctionComponent<{ href: string; type: 'twitter' | 'linkedin' | 'github', target?: string }> = ({
     href,
     type,
+    target
 }) => {
     return (
-        <a href={href} className="">
+        <a href={href} className="" target={target || '_blank'}>
             <div className="p-3 flex items-center justify-center transition hover:bg-primary hover:bg-opacity-10 dark:hover:bg-accent dark:hover:bg-opacity-10 rounded-full">
                 {type === 'twitter' && (
                     <TwitterOutline className="w-5 h-5 dark:text-accent-500 fill-current inline-block" />
