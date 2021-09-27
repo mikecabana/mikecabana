@@ -21,18 +21,18 @@ const projects = [
     {
         label: 'Spotify Now Playing Widget',
         description:
-            'A tiny little widget that uses the Spotify API to display your currently playing track. I’m using it to display what song I’m listening to while streaming on Twitch 🎮.',
+            'A tiny widget that uses the Spotify API to display your currently playing track. I’m using it to display what song I’m listening to while streaming on Twitch 🎮.',
         tags: ['Spotify', 'Next.js', 'Typescript', 'SCSS'],
     },
     {
         label: 'IEG America Website',
         extLink: 'https://ieg-america.com',
-        description: 'Some description about the new IEG America portal and website',
+        description: 'The main website for IEG America built from the ground up with modern design and a restructured content layout.',
         tags: ['Next.js', 'Typescript', 'SCSS'],
     },
     {
         label: 'IEG America Portal',
-        description: 'Some description about the new IEG America portal and website',
+        description: 'An operations management portal that provides analytics, dashboards and reports generation.',
         tags: ['Angular', 'Typescript', 'SCSS', 'Material UI'],
     },
 ];

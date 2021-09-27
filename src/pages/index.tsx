@@ -21,7 +21,7 @@ export default function Home() {
                         <h1 className="hero-big-text font-extrabold opacity-80">
                             {"I'm a"} <span className="text-accent-500">{'web'}</span> {'tinkerer.'}
                         </h1>
-                        <p className="max-w-xl">
+                        <p className="max-w-xl text-base md:text-xl">
                             I’m a software developer with a focus on creating great web experiences and a goal to
                             empower those needing to <span className="text-accent-500">{'('}</span>re
                             <span className="text-accent-500">{')'}</span>claim their online pressence.
@@ -90,10 +90,11 @@ export default function Home() {
                             start="2017"
                             end="Present"
                             tags={['Angular', 'Typescript', 'SCSS', 'Bootstrap', 'Dotnet', 'Entity Framework', 'MSSQL']}
-                            responcibilities={[
-                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
-                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
-                                'Ramps pok pok typewriter offal thundercats adaptogen. Leggings cardigan four dollar toast hot chicken cronut art party.',
+                            responsibilities={[
+                                'Responsible for designing and developing functional and thoughtful UI and UX.',
+                                'Leading and mentoring team members in order to maintain the vision for the project.',
+                                'Communicating with project manager, related teams, and stakeholders on a daily basis.',
+                                'Writing scalable and maintainable code based on software oriented architecture paradigms.'
                             ]}
                         />
                     </section>
@@ -106,8 +107,9 @@ export default function Home() {
                             {'Get in Touch'}
                         </h3>
                         <p className="max-w-md mx-auto text-center mb-12">
-                            If your interested in working together, have any questions or just want to say hi, my inbox
-                            is always open!
+                            {
+                                "If you're interested in working together, have any questions or just want to say hi, my inbox is always open!"
+                            }
                         </p>
                         <div className=" text-center">
                             <a

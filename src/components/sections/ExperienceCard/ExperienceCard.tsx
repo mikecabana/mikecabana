@@ -7,7 +7,7 @@ interface ExperienceProps {
     start: string;
     end: string;
     tags: string[];
-    responcibilities: string[];
+    responsibilities: string[];
 }
 
 export const ExperienceCard: FunctionComponent<ExperienceProps> = ({
@@ -16,7 +16,7 @@ export const ExperienceCard: FunctionComponent<ExperienceProps> = ({
     start,
     end,
     tags,
-    responcibilities,
+    responsibilities,
 }) => {
     return (
         <div className="max-w-2xl mx-auto">
@@ -45,7 +45,7 @@ export const ExperienceCard: FunctionComponent<ExperienceProps> = ({
                 </div>
                 <div>
                     <ul>
-                        {responcibilities.map((r, i) => (
+                        {responsibilities.map((r, i) => (
                             <li key={i} className="text-sm mb-4">
                                 <div className="flex items-start">
                                     <div className="mr-2 pt-1">
