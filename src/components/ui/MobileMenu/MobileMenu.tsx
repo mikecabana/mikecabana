@@ -93,7 +93,7 @@ export const MobileMenu: FunctionComponent = () => {
 										</a>
 									))}
                                     <li className="transition text-accent-500 bg-accent-500 bg-opacity-20 hover:bg-opacity-5 my-2 p-1 rounded-full text-center">
-                                        <a href="/resume.pdf" target="_blank">
+                                        <a href="https://drive.google.com/file/d/1fp7uVynT4iqXctk7BkOTZZq7fghqMT6X/view?usp=sharing" rel="noopener noreferrer" target="_blank">
                                             <small>Download my Resume!</small>
                                         </a>
                                     </li>

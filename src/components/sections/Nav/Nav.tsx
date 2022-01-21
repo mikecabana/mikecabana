@@ -71,7 +71,7 @@ export const Nav: FunctionComponent = () => {
 						{!isUnderMaintenance && (
 							<>
                                 <li className="mx-2 px-2 py-1 text-sm dark:text-accent-500 text-primary-500 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
-                                    <a href="/resume.pdf" target="_blank">
+                                    <a href="https://drive.google.com/file/d/1fp7uVynT4iqXctk7BkOTZZq7fghqMT6X/view?usp=sharing" rel="noopener noreferrer" target="_blank">
                                         Download my Resume!
                                     </a>
                                 </li>
