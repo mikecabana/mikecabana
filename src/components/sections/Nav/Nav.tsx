@@ -70,6 +70,11 @@ export const Nav: FunctionComponent = () => {
 					<ul className='list-none flex justify-end items-center dark:text-accent-500 text-primary-500'>
 						{!isUnderMaintenance && (
 							<>
+                                <li className="mx-2 px-2 py-1 text-sm dark:text-accent-500 text-primary-500 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
+                                    <a href="/resume.pdf" target="_blank">
+                                        Download my Resume!
+                                    </a>
+                                </li>
 								{navLinks.map((nl, i) => (
 									<li
 										key={i}

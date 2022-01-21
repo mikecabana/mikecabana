@@ -87,11 +87,16 @@ export const MobileMenu: FunctionComponent = () => {
 								<ul>
 									{navLinks.map((l, i) => (
 										<a key={i} href={l.route} onClick={() => setIsOpen(false)}>
-											<li className='transition hover:bg-accent-500 hover:bg-opacity-20 my-2 p-2 rounded'>
+											<li className='transition text-white hover:bg-accent-500 hover:bg-opacity-20 my-2 p-2 rounded'>
 												<small>{l.label}</small>
 											</li>
 										</a>
 									))}
+                                    <li className="transition text-accent-500 bg-accent-500 bg-opacity-20 hover:bg-opacity-5 my-2 p-1 rounded-full text-center">
+                                        <a href="/resume.pdf" target="_blank">
+                                            <small>Download my Resume!</small>
+                                        </a>
+                                    </li>
 								</ul>
 
 								<div className='flex items-center justify-between max-w-[200px] mx-auto my-8'>
