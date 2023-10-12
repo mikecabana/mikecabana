@@ -1,7 +1,7 @@
 import { ChangeEvent, ChangeEventHandler, FunctionComponent, useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-import { MoonIcon, SunIcon } from '@heroicons/react/outline';
+import { MoonIcon, SunIcon } from '@heroicons/react/24/outline';
 
 interface ThemeTogglerProps {}
 
