@@ -23,7 +23,7 @@
   },
   "include": [
     "next-env.d.ts",
-    "next-env-custom.d.ts",
+    "additional.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.cjs",

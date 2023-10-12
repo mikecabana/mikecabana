@@ -1,11 +1,12 @@
-module.exports = {
-    mode: 'jit',
-    purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+import { type Config } from 'tailwindcss';
+
+export default {
+    content: ['./src/**/*.{js,ts,jsx,tsx}'],
     darkMode: 'class', // or 'media' or 'class' or false
     theme: {
         extend: {
             animation: {
-                'bounce-slow': 'bounce 6s infinite'
+                'bounce-slow': 'bounce 6s infinite',
             },
             colors: {
                 'twitter-blue': '#1DA1F2',
@@ -52,8 +53,5 @@ module.exports = {
             },
         },
     },
-    variants: {
-        extend: {},
-    },
     plugins: [],
-};
+} satisfies Config;

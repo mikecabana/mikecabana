@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { MainLayout } from '../components/layouts/MainLayout';
 import { ExperienceCard } from '../components/sections/ExperienceCard';
 import { Projects } from '../components/sections/Projects';
