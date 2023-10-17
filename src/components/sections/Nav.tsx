@@ -1,9 +1,9 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ThemeToggler } from '../../tools';
-import { useUnderMaintenance } from '../../../lib/useUnderMaintenance';
-import { NavButton } from '../../ui/NavButton';
-import { MobileMenu } from '../../ui/MobileMenu';
+import { ThemeToggler } from '../tools/ThemeToggler';
+import { useUnderMaintenance } from '../../lib/useUnderMaintenance';
+import { NavButton } from '../ui/NavButton';
+import { MobileMenu } from '../ui/MobileMenu';
 
 const navLinks = [
     {
@@ -24,7 +24,7 @@ const navLinks = [
     },
 ];
 
-export const Nav: FunctionComponent = () => {
+export const Nav: FC = () => {
     const isUnderMaintenance = useUnderMaintenance();
 
     const [scrollIsNotTop, setScrollIsNotTop] = useState(false);
@@ -32,7 +32,7 @@ export const Nav: FunctionComponent = () => {
 
     let lastScrollLocation = 0;
 
-    const handleScroll = (e) => {
+    const handleScroll = () => {
         // determine if we're at the top of the page
         if (window.scrollY > 100) {
             setScrollIsNotTop(true);

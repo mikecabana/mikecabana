@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
-import { NavButton } from '../../ui/NavButton';
+import { FC } from 'react';
+import { NavButton } from '../ui/NavButton';
 
 const navLinks = [
     {
@@ -35,7 +35,7 @@ const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' }[] =
     },
 ];
 
-export const Footer: FunctionComponent = () => {
+export const Footer: FC = () => {
     return (
         <footer className="py-10 mt-24 text-sm text-center dark:text-accent-500 text-primary-950">
             <div className="mb-8">

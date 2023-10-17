@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 
 import ExternalLink from '../../svgs/external-link.svg';
 
@@ -11,7 +11,7 @@ interface ProjectCardProps {
     extLink?: string;
 }
 
-export const ProjectCard: FunctionComponent<ProjectCardProps> = ({
+export const ProjectCard: FC<ProjectCardProps> = ({
     label,
     description,
     tags,

@@ -1,6 +1,6 @@
-import { FunctionComponent } from 'react';
+import { FC, ReactNode } from 'react';
 
-export const TotemPole: FunctionComponent = ({children}) => {
+export const TotemPole: FC<{ children: ReactNode }> = ({children}) => {
     return <div className="flex flex-col items-center totem-pole max-w-[100px]">
         {children}
     </div>;

@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FC } from 'react';
 import DoubleChevronRight from '../../svgs/double-chevron-right.svg';
 
 interface ExperienceProps {
@@ -10,7 +10,7 @@ interface ExperienceProps {
     responsibilities: string[];
 }
 
-export const ExperienceCard: FunctionComponent<ExperienceProps> = ({
+export const ExperienceCard: FC<ExperienceProps> = ({
     employer,
     title,
     start,

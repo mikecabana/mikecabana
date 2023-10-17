@@ -1,9 +1,9 @@
-import { Fragment, FunctionComponent, useState } from 'react';
+import { Fragment, FC, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import MenuAlt from '../../svgs/menu-alt.svg';
 import Close from '../../svgs/close.svg';
-import { NavButton } from '../../ui/NavButton';
-import { ThemeToggler } from '../../tools';
+import { NavButton } from './NavButton';
+import { ThemeToggler } from '../tools/ThemeToggler';
 
 const navLinks = [
 	{
@@ -24,7 +24,7 @@ const navLinks = [
 	},
 ];
 
-export const MobileMenu: FunctionComponent = () => {
+export const MobileMenu: FC = () => {
 	let [isOpen, setIsOpen] = useState(false);
 
 	function closeModal() {

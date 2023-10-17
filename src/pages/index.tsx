@@ -1,4 +1,5 @@
 import Image from "next/legacy/image";
+import { NextPage } from 'next'
 import { MainLayout } from '../components/layouts/MainLayout';
 import { ExperienceCard } from '../components/sections/ExperienceCard';
 import { Projects } from '../components/sections/Projects';
@@ -6,7 +7,7 @@ import { useUnderMaintenance } from '../lib/useUnderMaintenance';
 import { Footer } from '../components/sections/Footer';
 import { SectionWrapper } from '../components/tools/SectionWrapper';
 
-export default function Home() {
+const Home: NextPage = () => {
     const isUnderMaintenance = useUnderMaintenance();
 
     return (
@@ -207,3 +208,5 @@ export default function Home() {
         </MainLayout>
     );
 }
+
+export default Home;

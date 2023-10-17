@@ -1,7 +1,7 @@
 'use client'
 
 import { FC, ReactNode, useRef } from 'react';
-import { useOnScreen } from '../../../lib/useOnScreen';
+import { useOnScreen } from '../../lib/useOnScreen';
 
 export const SectionWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 	const ref = useRef(null);

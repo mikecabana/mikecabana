@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
-import { Nav } from '../../sections/Nav';
-import { TotemPole } from '../../ui/TotemPole';
-import { NavButton } from '../../ui/NavButton';
+import { Nav } from '../sections/Nav';
+import { TotemPole } from '../ui/TotemPole';
+import { NavButton } from '../ui/NavButton';
 
 export const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
     return (

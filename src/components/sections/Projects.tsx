@@ -1,5 +1,5 @@
-import { FunctionComponent } from 'react';
-import { ProjectCard } from '../ProjectCard';
+import { FC } from 'react';
+import { ProjectCard } from './ProjectCard';
 
 const projects = [
     {
@@ -39,7 +39,7 @@ const projects = [
 
 interface ProjectsProps {}
 
-export const Projects: FunctionComponent<ProjectsProps> = ({}) => {
+export const Projects: FC<ProjectsProps> = ({}) => {
     // todo
     // split the array in 2 (floor) one for each column
 
