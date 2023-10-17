@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import DoubleChevronRight from '../../svgs/double-chevron-right.svg';
+import { ChevronsRightIcon } from 'lucide-react';
 
 interface ExperienceProps {
     employer: string;
@@ -10,14 +10,7 @@ interface ExperienceProps {
     responsibilities: string[];
 }
 
-export const ExperienceCard: FC<ExperienceProps> = ({
-    employer,
-    title,
-    start,
-    end,
-    tags,
-    responsibilities,
-}) => {
+export const ExperienceCard: FC<ExperienceProps> = ({ employer, title, start, end, tags, responsibilities }) => {
     return (
         <div className="max-w-2xl mx-auto">
             <h4 className="text-lg font-semibold dark:font-normal dark:text-accent-500 text-primary-950 experience-title pb-6">
@@ -49,7 +42,7 @@ export const ExperienceCard: FC<ExperienceProps> = ({
                             <li key={i} className="text-sm mb-4">
                                 <div className="flex items-start">
                                     <div className="mr-2 pt-1">
-                                        <DoubleChevronRight className="text-accent-500 fill-current w-4 h-4" />
+                                        <ChevronsRightIcon className="text-accent-500 w-4 h-4" />
                                     </div>
                                     <div className="flex-grow">{r}</div>
                                 </div>

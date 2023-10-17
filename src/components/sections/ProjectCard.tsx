@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import ExternalLink from '../../svgs/external-link.svg';
+import { ExternalLinkIcon } from 'lucide-react';
 
 interface ProjectCardProps {
     label: string;
@@ -11,14 +11,7 @@ interface ProjectCardProps {
     extLink?: string;
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({
-    label,
-    description,
-    tags,
-    badges,
-    disclaimer,
-    extLink,
-}) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ label, description, tags, badges, disclaimer, extLink }) => {
     return (
         <div className="relative border border-accent-500 rounded-lg p-6">
             {extLink && (
@@ -28,11 +21,17 @@ export const ProjectCard: FC<ProjectCardProps> = ({
                     rel="noreferrer"
                     className="absolute top-0 right-0 m-4 transition bg-accent bg-opacity-10 hover:bg-opacity-20 rounded-lg p-1"
                 >
-                    <ExternalLink className="w-5 h-5 text-accent-500 fill-current" />
+                    <ExternalLinkIcon className="w-5 h-5 text-accent-500" />
                 </a>
             )}
             <h3 className="text-xl mb-4 flex items-center">
-                {label} {badges && badges.map((b, i) => <span key={i} className="text-accent-500 bg-accent bg-opacity-10 rounded-md p-1 ml-2 text-xs">{b}</span>)}
+                {label}{' '}
+                {badges &&
+                    badges.map((b, i) => (
+                        <span key={i} className="text-accent-500 bg-accent bg-opacity-10 rounded-md p-1 ml-2 text-xs">
+                            {b}
+                        </span>
+                    ))}
             </h3>
 
             <p className="mb-4">{description}</p>
@@ -40,7 +39,12 @@ export const ProjectCard: FC<ProjectCardProps> = ({
             {tags && (
                 <div className="mb-4 flex flex-row items-center flex-wrap">
                     {tags.map((t, i) => (
-                        <span key={i} className="text-accent-500 bg-accent bg-opacity-10 rounded-md px-2 py-1 mr-2 mb-2 text-sm">{t}</span>
+                        <span
+                            key={i}
+                            className="text-accent-500 bg-accent bg-opacity-10 rounded-md px-2 py-1 mr-2 mb-2 text-sm"
+                        >
+                            {t}
+                        </span>
                     ))}
                 </div>
             )}
