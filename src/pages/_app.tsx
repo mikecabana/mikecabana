@@ -7,18 +7,10 @@ import Script from 'next/script';
 import '../styles/globals.scss';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
-import { GTM_ID, pageview } from '../lib/gtm';
+
+export const GTM_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
 
 function MyApp({ Component, pageProps }: AppProps) {
-    // const router = useRouter();
-
-    // useEffect(() => {
-    //     router.events.on('hashChangeComplete', pageview);
-
-    //     return () => {
-    //         router.events.off('hashChangeComplete', pageview);
-    //     };
-    // }, [router.events]);
 
     return (
         <>
