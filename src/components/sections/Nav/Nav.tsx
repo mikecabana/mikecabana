@@ -61,17 +61,17 @@ export const Nav: FunctionComponent = () => {
                 scrollIsNotTop ? 'shadow-lg' : ''
             } ${isScrollingDown ? 'transition duration-500 -translate-y-full' : ''}`}
         >
-            <nav className="w-full h-full px-4 py-2 md:px-12 md:py-4 flex flex-row justify-between items-center bg-background-500 dark:bg-primary-500 bg-opacity-50 dark:bg-opacity-50">
-                <div className="dark:text-accent-500 text-primary-500">
+            <nav className="w-full h-full px-4 py-2 md:px-12 md:py-4 flex flex-row justify-between items-center bg-background-500 dark:bg-primary-950 bg-opacity-50 dark:bg-opacity-50">
+                <div className="dark:text-accent-500 text-primary-950">
                     {/* logo */}
                     <h1 className="logo text-base lg:text-xl xl:text-4xl py-4">M I K E</h1>
                 </div>
                 <div className="hidden lg:block">
                     {/* nav list */}
-                    <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-500">
+                    <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-950">
                         {!isUnderMaintenance && (
                             <>
-                                <li className="mx-2 px-2 py-1 text-sm dark:text-accent-500 text-primary-500 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
+                                <li className="mx-2 px-2 py-1 text-sm dark:text-accent-500 text-primary-950 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
                                     <a
                                         href="https://drive.google.com/file/d/1fp7uVynT4iqXctk7BkOTZZq7fghqMT6X/view?usp=sharing"
                                         rel="noopener noreferrer"
@@ -83,7 +83,7 @@ export const Nav: FunctionComponent = () => {
                                 {navLinks.map((nl, i) => (
                                     <li
                                         key={i}
-                                        className="mx-4 text-sm dark:text-accent-500 text-primary-500 hover:underline"
+                                        className="mx-4 text-sm dark:text-accent-500 text-primary-950 hover:underline"
                                     >
                                         <Link href={nl.route}>{nl.label}</Link>
                                     </li>

@@ -37,7 +37,7 @@ const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' }[] =
 
 export const Footer: FunctionComponent = () => {
     return (
-        <footer className="py-10 mt-24 text-sm text-center dark:text-accent-500 text-primary-500">
+        <footer className="py-10 mt-24 text-sm text-center dark:text-accent-500 text-primary-950">
             <div className="mb-8">
                 {navLinks.map((n, i) => (
                     <a key={i} href={n.route} className="mx-2 hover:underline dark:text-white">

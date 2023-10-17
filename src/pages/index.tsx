@@ -15,7 +15,7 @@ export default function Home() {
                 <>
                     <section className="relative h-screen flex flex-col justify-center">
                         {/* hero */}
-                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title">
+                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title">
                             {'Hi, my name is Michael and'}{' '}
                         </h2>
                         <h1 className="hero-big-text font-extrabold opacity-80">
@@ -45,7 +45,7 @@ export default function Home() {
                     <SectionWrapper>
                         <section className="py-16" id="about-me">
                             {/* about me */}
-                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
                                 {'A little about me'}
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -61,7 +61,7 @@ export default function Home() {
                                     </p>
                                 </div>
                                 <div className="flex items-center justify-center">
-                                    <div className="rounded-lg p-4 md:p-12 border-dashed border-2 border-primary-500 dark:border-accent-500">
+                                    <div className="rounded-lg p-4 md:p-12 border-dashed border-2 border-primary-950 dark:border-accent-500">
                                         <div className="relative h-64 w-64 mx-auto">
                                             <Image
                                                 src="/profile-pic.png"
@@ -79,13 +79,13 @@ export default function Home() {
                     <SectionWrapper>
                         <section className="py-12" id="projects">
                             {/* projects */}
-                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
                                 {'Projects'}
                             </h2>
                             <Projects />
                             <div className="pt-24 text-center">
                                 <a
-                                    className="text-primary-500 dark:text-accent-500 hover:underline"
+                                    className="text-primary-950 dark:text-accent-500 hover:underline"
                                     href="https://github.com/mikecabana"
                                     target="_blank"
                                     rel="noreferrer"
@@ -98,7 +98,7 @@ export default function Home() {
                     <SectionWrapper>
                         <section className="py-12" id="experience">
                             {/* experience */}
-                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
                                 {'Experience'}
                             </h2>
                             <ExperienceCard
@@ -127,7 +127,7 @@ export default function Home() {
                     <SectionWrapper>
                         <section className="py-12" id="get-in-touch">
                             {/* get in touch */}
-                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-500 section-title pb-12">
+                            <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
                                 {"Let's chat"}
                             </h2>
                             <h3 className="font-extrabold opacity-70 text-center get-in-touch-big-text">

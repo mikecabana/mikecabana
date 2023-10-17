@@ -20,7 +20,7 @@ export const ExperienceCard: FunctionComponent<ExperienceProps> = ({
 }) => {
     return (
         <div className="max-w-2xl mx-auto">
-            <h4 className="text-lg font-semibold dark:font-normal dark:text-accent-500 text-primary-500 experience-title pb-6">
+            <h4 className="text-lg font-semibold dark:font-normal dark:text-accent-500 text-primary-950 experience-title pb-6">
                 {employer}
             </h4>
 

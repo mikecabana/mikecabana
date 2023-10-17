@@ -41,7 +41,7 @@ export const MobileMenu: FunctionComponent = () => {
 				type='button'
 				onClick={openModal}
 				className='px-4 py-2 text-sm font-medium text-white rounded-md hover:bg-accent-500 hover:bg-opacity-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
-				<MenuAlt className='h-6 w-6 dark:text-accent-500 text-primary-500 fill-current' />
+				<MenuAlt className='h-6 w-6 dark:text-accent-500 text-primary-950 fill-current' />
 			</button>
 
 			<Transition appear show={isOpen} as={Fragment}>
@@ -71,7 +71,7 @@ export const MobileMenu: FunctionComponent = () => {
 							leaveFrom='opacity-100 scale-100'
 							leaveTo='opacity-0 scale-95'>
 							{/* actual dialog content */}
-							<div className='inline-block w-full p-6 overflow-hidden align-middle transition-all transform dark:bg-primary-500 border border-dashed dark:border-accent-500 bg-white shadow-xl'>
+							<div className='inline-block w-full p-6 overflow-hidden align-middle transition-all transform dark:bg-primary-950 border border-dashed dark:border-accent-500 bg-white shadow-xl'>
 								<Dialog.Title
 									as='div'
 									className='text-2xl font-medium leading-6 flex justify-between items-center dark:text-accent-500'>
@@ -80,7 +80,7 @@ export const MobileMenu: FunctionComponent = () => {
 										type='button'
 										onClick={() => setIsOpen(false)}
 										className='transition px-4 py-2 text-sm font-medium text-white rounded-md hover:bg-accent-500 hover:bg-opacity-20 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75'>
-										<Close className='h-6 w-6 dark:text-accent-500 text-primary-500 fill-current' />
+										<Close className='h-6 w-6 dark:text-accent-500 text-primary-950 fill-current' />
 									</button>
 								</Dialog.Title>
 
