@@ -5,8 +5,21 @@ export default {
     darkMode: 'class', // or 'media' or 'class' or false
     theme: {
         extend: {
+            keyframes: {
+                wave: {
+                    '0%': { transform: 'rotate(0.0deg)' },
+                    '10%': { transform: 'rotate(14deg)' },
+                    '20%': { transform: 'rotate(-8deg)' },
+                    '30%': { transform: 'rotate(14deg)' },
+                    '40%': { transform: 'rotate(-4deg)' },
+                    '50%': { transform: 'rotate(10.0deg)' },
+                    '60%': { transform: 'rotate(0.0deg)' },
+                    '100%': { transform: 'rotate(0.0deg)' },
+                },
+            },
             animation: {
                 'bounce-slow': 'bounce 6s infinite',
+                'wave': 'wave 2s linear infinite',
             },
             colors: {
                 'twitter-blue': '#1DA1F2',
@@ -65,6 +78,7 @@ export default {
                     900: '#8D8D8D',
                 },
             },
+            
         },
     },
     plugins: [],

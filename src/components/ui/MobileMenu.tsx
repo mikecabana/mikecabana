@@ -7,8 +7,8 @@ import { ThemeToggler } from '../tools/ThemeToggler';
 
 const navLinks = [
     {
-        route: '#about-me',
-        label: 'About Me',
+        route: '#services',
+        label: 'My Services',
     },
     {
         route: '#projects',
@@ -74,7 +74,7 @@ export const MobileMenu: FC = () => {
                             leaveTo="opacity-0 scale-95"
                         >
                             {/* actual dialog content */}
-                            <div className="inline-block w-full p-6 overflow-hidden align-middle transition-all transform dark:bg-primary-950 border border-dashed dark:border-accent-500 bg-white shadow-xl">
+                            <div className="inline-block w-full p-6 overflow-hidden align-middle transition-all transform dark:bg-primary-950 border border-dashed rounded-2xl dark:border-accent-500 bg-white shadow-xl">
                                 <Dialog.Title
                                     as="div"
                                     className="text-2xl font-medium leading-6 flex justify-between items-center dark:text-accent-500"
@@ -92,7 +92,7 @@ export const MobileMenu: FC = () => {
                                 <ul>
                                     {navLinks.map((l, i) => (
                                         <a key={i} href={l.route} onClick={() => setIsOpen(false)}>
-                                            <li className="transition text-white hover:bg-accent-500 hover:bg-opacity-20 my-2 p-2 rounded">
+                                            <li className="transition hover:bg-accent-500 hover:bg-opacity-20 my-2 px-4 py-2 rounded-2xl">
                                                 <small>{l.label}</small>
                                             </li>
                                         </a>
@@ -110,6 +110,7 @@ export const MobileMenu: FC = () => {
 
                                 <div className="flex items-center justify-between max-w-[200px] mx-auto my-8">
                                     <NavButton href="https://github.com.com/mikecabana" type="github" />
+                                    <NavButton href="https://www.threads.net/@mikecabana" type="threads" />
                                     <NavButton href="https://twitter.com.com/mikecabana" type="twitter" />
                                     <NavButton
                                         href="https://ca.linkedin.com/in/michael-cabana-b5903a66"

@@ -1,14 +1,13 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import Link from 'next/link';
 import { ThemeToggler } from '../tools/ThemeToggler';
 import { useUnderMaintenance } from '../../lib/useUnderMaintenance';
-import { NavButton } from '../ui/NavButton';
 import { MobileMenu } from '../ui/MobileMenu';
 
 const navLinks = [
     {
-        route: '#about-me',
-        label: 'About Me',
+        route: '#services',
+        label: 'My Services',
     },
     {
         route: '#projects',
@@ -17,50 +16,14 @@ const navLinks = [
     {
         route: '#experience',
         label: 'Experience',
-    },
-    {
-        route: '#get-in-touch',
-        label: 'Get in Touch',
-    },
+    }
 ];
 
 export const Nav: FC = () => {
     const isUnderMaintenance = useUnderMaintenance();
 
-    const [scrollIsNotTop, setScrollIsNotTop] = useState(false);
-    const [isScrollingDown, setIsScrollingDown] = useState(false);
-
-    let lastScrollLocation = 0;
-
-    const handleScroll = () => {
-        // determine if we're at the top of the page
-        if (window.scrollY > 100) {
-            setScrollIsNotTop(true);
-        } else {
-            setScrollIsNotTop(false);
-        }
-
-        // determine if we are scrolling up or down
-        if (window.scrollY > lastScrollLocation) {
-            setIsScrollingDown(true);
-        } else {
-            setIsScrollingDown(false);
-        }
-        lastScrollLocation = window.scrollY;
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
     return (
-        <header
-            className={`fixed top-0 left-0 right-0  backdrop-filter backdrop-blur-lg z-40 transition ${
-                scrollIsNotTop ? 'shadow-lg' : ''
-            } ${isScrollingDown ? 'transition duration-500 -translate-y-full' : ''}`}
-        >
+        <header>
             <nav className="w-full h-full px-4 py-2 md:px-12 md:py-4 flex flex-row justify-between items-center bg-background-500 dark:bg-primary-950 bg-opacity-50 dark:bg-opacity-50">
                 <div className="dark:text-accent-500 text-primary-950">
                     {/* logo */}
@@ -71,7 +34,7 @@ export const Nav: FC = () => {
                     <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-950">
                         {!isUnderMaintenance && (
                             <>
-                                <li className="mx-2 px-2 py-1 text-sm dark:text-accent-500 text-primary-950 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
+                                <li className="mx-2 px-4 py-1 text-sm dark:text-accent-500 text-primary-950 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
                                     <a
                                         href="https://drive.google.com/file/d/1fp7uVynT4iqXctk7BkOTZZq7fghqMT6X/view?usp=sharing"
                                         rel="noopener noreferrer"
@@ -88,21 +51,6 @@ export const Nav: FC = () => {
                                         <Link href={nl.route}>{nl.label}</Link>
                                     </li>
                                 ))}
-
-                                <li className="mx-2">
-                                    <NavButton href="https://github.com/mikecabana" type="github" />
-                                </li>
-
-                                <li className="mx-2">
-                                    <NavButton href="https://twitter.com/mikecabana" type="twitter" />
-                                </li>
-
-                                <li className="mx-2">
-                                    <NavButton
-                                        href="https://ca.linkedin.com/in/michael-cabana-b5903a66"
-                                        type="linkedin"
-                                    />
-                                </li>
                             </>
                         )}
                         <li className="ml-4">

@@ -1,11 +1,13 @@
-import Image from "next/legacy/image";
-import { NextPage } from 'next'
+import Image from 'next/image';
+import { NextPage } from 'next';
 import { MainLayout } from '../components/layouts/MainLayout';
 import { ExperienceCard } from '../components/sections/ExperienceCard';
 import { Projects } from '../components/sections/Projects';
 import { useUnderMaintenance } from '../lib/useUnderMaintenance';
 import { Footer } from '../components/sections/Footer';
 import { SectionWrapper } from '../components/tools/SectionWrapper';
+import { Card } from '~/components/ui/Card';
+import { NavButton } from '~/components/ui/NavButton';
 
 const Home: NextPage = () => {
     const isUnderMaintenance = useUnderMaintenance();
@@ -14,72 +16,89 @@ const Home: NextPage = () => {
         <MainLayout>
             {!isUnderMaintenance && (
                 <>
-                    <section className="relative h-screen flex flex-col justify-center">
-                        {/* hero */}
-                        <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title">
-                            {'Hi, my name is Michael and'}{' '}
-                        </h2>
-                        <h1 className="hero-big-text font-extrabold opacity-80">
-                            {"I'm a"} <span className="text-accent-500">{'web'}</span> {'tinkerer.'}
-                        </h1>
-                        <p className="max-w-xl text-base md:text-xl mb-8">
-                            {"I'm"} a software developer with a focus on creating great web experiences and a goal to
-                            empower those needing to <span className="text-accent-500">{'('}</span>re
-                            <span className="text-accent-500">{')'}</span>claim their online presence.
-                        </p>
-                        <p className="max-w-xl text-base md:text-xl mb-12">
-                            Currently I’m working full time developing tools and experiences for a great company in the
-                            lounge and travel space. {"Don't"} hesitate to get in touch!
-                        </p>
-                        <div className="">
-                            <a
-                                className="px-8 py-4 border border-accent-500 text-accent-500 rounded-lg transition hover:bg-accent hover:bg-opacity-20"
-                                href="#get-in-touch"
-                            >
-                                Get in touch 👋
+                    {/* hero */}
+
+                    <section className="border-primary-500 grid gap-8 grid-cols-1 md:grid-cols-12 mb-14">
+                        <Card className="col-span-12 md:col-span-7 p-8">
+                            <h2 className="font-semibold text-lg dark:font-normal dark:text-accent-500 text-primary-950">
+                                {"Hi, I'm Mike and"}
+                            </h2>
+                            <h1 className="hero-big-text font-extrabold opacity-80">
+                                {"I'm a"} <span className="text-accent-600 dark:text-accent-500">{'web'}</span>
+                                <br className="hidden md:block" /> {'tinkerer.'}
+                            </h1>
+                            <p className="max-w-xl text-base md:text-xl mb-8">
+                                {" I'm an Angular and C# developer by day. By"}{' '}
+                                <span className="text-accent-600 dark:text-accent-500">night</span>
+                                {
+                                    ', I love to tinker in some of the latest and cutting edge software, web and AI tech. '
+                                }
+                            </p>
+                            <p className="max-w-xl text-base md:text-xl mb-12">
+                                {
+                                    "Proudly a full time dev but always open to work with others on their interesting challenges. Don't hesitate to get in touch if you'd like to work together."
+                                }
+                            </p>
+                            <a href="#get-in-touch">
+                                <div className="px-8 py-4 font-semibold flex items-baseline border border-accent-500 text-accent-600 dark:text-accent-500 rounded-xl transition hover:bg-accent hover:bg-opacity-20">
+                                    <div className="mr-2">Get in touch</div>{' '}
+                                    <div className="animate-wave text-xl">👋</div>
+                                </div>
                             </a>
-                        </div>
-                        <div className="absolute right-0 top-1/3">
-                            <Image src="/upside-tri.png" width={400} height={400} alt="" />
+                        </Card>
+                        <div className="col-span-12 md:col-span-5 grid grid-rows-6 gap-8">
+                            <div className="row-span-5 h-full">
+                                <div className="relative h-full w-full min-h-[400px]">
+                                    <Image
+                                        src="/me-l-5.png"
+                                        fill={true}
+                                        objectFit="cover"
+                                        objectPosition="top"
+                                        alt=""
+                                        className="z-10"
+                                    />
+                                    <Card hasBackground={true} className="absolute h-full w-full top-0"></Card>
+                                </div>
+                            </div>
+                            <Card>
+                                <div className=" flex justify-center items-center gap-8 h-full min-h-[80px]">
+                                    <NavButton href="https://github.com/mikecabana" type="github" />
+
+                                    <NavButton href="https://www.threads.net/@mikecabana" type="threads" />
+
+                                    <NavButton href="https://twitter.com/mikecabana" type="twitter" />
+
+                                    <NavButton
+                                        href="https://ca.linkedin.com/in/michael-cabana-b5903a66"
+                                        type="linkedin"
+                                    />
+                                </div>
+                            </Card>
                         </div>
                     </section>
+
+                    {/* services */}
+
                     <SectionWrapper>
-                        <section className="py-16" id="about-me">
-                            {/* about me */}
+                        <section className="my-16 py-16" id="services">
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
-                                {'A little about me'}
+                                {'How we can work together'}
                             </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
-                                <div>
-                                    <p className="pb-8">
-                                        My name is Michael Cabana, a Montreal based software developer. I’ve been a
-                                        developer professionally for just over 4 years.
-                                    </p>
-                                    <p className="pb-8">
-                                        I first got into web dev while in college where I was actually pursuing a career
-                                        path towards a Doctor of Optometry. I took an intro to web development class as
-                                        an elective and right away I knew this was the place for me!
-                                    </p>
-                                </div>
-                                <div className="flex items-center justify-center">
-                                    <div className="rounded-lg p-4 md:p-12 border-dashed border-2 border-primary-950 dark:border-accent-500">
-                                        <div className="relative h-64 w-64 mx-auto">
-                                            <Image
-                                                src="/profile-pic.png"
-                                                alt="portrait of Michael"
-                                                layout="fill"
-                                                objectFit="cover"
-                                                className="rounded-lg transform scale-x-[-1]"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <Card className="p-8">
+                                    <h3 className="big-text font-black dark:font-normal ">Website Development</h3>
+                                </Card>
+                                <Card className="p-8">
+                                    <h3 className="big-text font-black dark:font-normal ">AI & Automation</h3>
+                                </Card>
                             </div>
                         </section>
                     </SectionWrapper>
+
+                    {/* projects */}
+
                     <SectionWrapper>
                         <section className="py-12" id="projects">
-                            {/* projects */}
                             <h2 className="font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12">
                                 {'Projects'}
                             </h2>
@@ -207,6 +226,6 @@ const Home: NextPage = () => {
             )}
         </MainLayout>
     );
-}
+};
 
 export default Home;

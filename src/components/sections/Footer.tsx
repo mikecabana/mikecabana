@@ -3,27 +3,31 @@ import { NavButton } from '../ui/NavButton';
 
 const navLinks = [
     {
-        route: '#',
-        label: 'About Me',
+        route: '#services',
+        label: 'My Services',
     },
     {
-        route: '#',
+        route: '#projects',
         label: 'Projects',
     },
     {
-        route: '#',
+        route: '#experience',
         label: 'Experience',
     },
     {
-        route: '#',
+        route: '#get-in-touch',
         label: 'Get in Touch',
     },
 ];
 
-const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' }[] = [
+const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' | 'threads' }[] = [
     {
         href: 'https://github.com/mikecabana',
         type: 'github',
+    },
+    {
+        href: 'https://www.threads.net/@mikecabana',
+        type: 'threads',
     },
     {
         href: 'https://twitter.com/mikecabana',
