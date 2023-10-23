@@ -12,7 +12,7 @@ interface ExperienceProps {
 
 export const ExperienceCard: FC<ExperienceProps> = ({ employer, title, start, end, tags, responsibilities }) => {
     return (
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto mb-28 last:mb-0">
             <h4 className="text-lg font-semibold dark:font-normal dark:text-accent-500 text-primary-950 experience-title pb-6">
                 {employer}
             </h4>

@@ -3,20 +3,21 @@ import Link from 'next/link';
 import { ThemeToggler } from '../tools/ThemeToggler';
 import { useUnderMaintenance } from '../../lib/useUnderMaintenance';
 import { MobileMenu } from '../ui/MobileMenu';
+import { scrollTo } from '~/lib/scrollTo';
 
 const navLinks = [
     {
-        route: '#services',
+        id: 'services',
         label: 'My Services',
     },
     {
-        route: '#projects',
+        id: 'projects',
         label: 'Projects',
     },
     {
-        route: '#experience',
+        id: 'experience',
         label: 'Experience',
-    }
+    },
 ];
 
 export const Nav: FC = () => {
@@ -40,15 +41,16 @@ export const Nav: FC = () => {
                                         rel="noopener noreferrer"
                                         target="_blank"
                                     >
-                                        Download my Resume!
+                                        Download my CV!
                                     </a>
                                 </li>
                                 {navLinks.map((nl, i) => (
                                     <li
                                         key={i}
-                                        className="mx-4 text-sm dark:text-accent-500 text-primary-950 hover:underline"
+                                        className="mx-4 text-sm dark:text-accent-500 text-primary-950 cursor-pointer hover:underline"
+                                        onClick={() => scrollTo(nl.id)}
                                     >
-                                        <Link href={nl.route}>{nl.label}</Link>
+                                        {nl.label}
                                     </li>
                                 ))}
                             </>

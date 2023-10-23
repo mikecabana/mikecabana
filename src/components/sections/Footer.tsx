@@ -1,21 +1,22 @@
 import { FC } from 'react';
 import { NavButton } from '../ui/NavButton';
+import { scrollTo } from '~/lib/scrollTo';
 
 const navLinks = [
     {
-        route: '#services',
+        route: 'services',
         label: 'My Services',
     },
     {
-        route: '#projects',
+        route: 'projects',
         label: 'Projects',
     },
     {
-        route: '#experience',
+        route: 'experience',
         label: 'Experience',
     },
     {
-        route: '#get-in-touch',
+        route: 'get-in-touch',
         label: 'Get in Touch',
     },
 ];
@@ -42,11 +43,15 @@ const socialLinks: { href: string; type: 'twitter' | 'github' | 'linkedin' | 'th
 export const Footer: FC = () => {
     return (
         <footer className="py-10 mt-24 text-sm text-center dark:text-accent-500 text-primary-950">
-            <div className="mb-8">
+            <div className="mb-8 flex gap-4 items-center justify-center">
                 {navLinks.map((n, i) => (
-                    <a key={i} href={n.route} className="mx-2 hover:underline dark:text-white">
+                    <div
+                        onClick={() => scrollTo(n.route)}
+                        key={i}
+                        className="cursor-pointer mx-2 hover:underline dark:text-white"
+                    >
                         {n.label}
-                    </a>
+                    </div>
                 ))}
             </div>
 
