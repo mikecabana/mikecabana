@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { X } from 'lucide-react';
 import { Input } from './Input';
 import { Button } from './Button';
+import { Textarea } from './Textarea';
 
 type ContactFormProps = {
 	isOpen: boolean;
@@ -65,14 +66,16 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
 								<form>
 									<div className='grid grid-cols-2 gap-8'>
 										<div>
-											<Input type='text' placeholder='Name' />
-											<Input type='text' placeholder='Email' />
-											<Input type='text' placeholder='Something' />
+											<Input type='text' name='name' label='Name' required />
+											<Input type='email' name='email' label='Email' required />
+											<Input type='tel' name='phone' label='Phone' />
 										</div>
-										<div>
-											<textarea />
-											<Button>Send</Button>
+										<div className='flex flex-col items-stretch justify-stretch'>
+											<Textarea name='message' label='Message' required className='h-full resize-none' />
 										</div>
+									</div>
+									<div className="flex justify-end">
+										<Button>Send</Button>
 									</div>
 								</form>
 							</div>
