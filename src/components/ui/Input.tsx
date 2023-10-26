@@ -7,7 +7,7 @@ type InputProps = { label?: string } & InputHTMLAttributes<HTMLInputElement>;
 export const Input: FC<InputProps> = ({ label, required, className, ...props }) => {
 	const name = props.name ?? uuid4();
 	return (
-		<div className='relative mb-4 pt-2'>
+		<div className='relative mb-4 last:mb-0 pt-2'>
 			{label && (
 				<label
 					className='absolute top-0 left-2 text-xs px-2 text-primary-800 dark:text-background-700 bg-background-400 dark:bg-primary-950'

@@ -1,4 +1,4 @@
-import { Fragment, FC, useState, useEffect } from 'react';
+import { Fragment, FC, useState, useEffect, FormEvent } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { X } from 'lucide-react';
 import { Input } from './Input';
@@ -11,10 +11,33 @@ type ContactFormProps = {
 };
 
 export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
-	let [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [phone, setPhone] = useState('');
+	const [message, setMessage] = useState('');
+	const [robot, setRobot] = useState('');
+	const [success, setSuccess] = useState(false);
 
 	const closeModal = () => {
 		onClose();
+	};
+
+	const handleSend = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log({ name, email, phone, message, robot });
+
+		try {
+			await fetch('/api/contact', {
+				method: 'POST',
+				body: JSON.stringify({ name, email, phone, message, robot }),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+
+			setSuccess(true);
+		} catch (e) {}
 	};
 
 	useEffect(() => {
@@ -63,19 +86,56 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
 									</button>
 								</Dialog.Title>
 
-								<form>
+								<form onSubmit={(e) => handleSend(e)}>
 									<div className='grid grid-cols-2 gap-8'>
 										<div>
-											<Input type='text' name='name' label='Name' required />
-											<Input type='email' name='email' label='Email' required />
-											<Input type='tel' name='phone' label='Phone' />
+											<Input
+												type='text'
+												name='name'
+												label='Name'
+												required
+												value={name}
+												onInput={(e) => setName((e.target as any).value)}
+											/>
+											<Input
+												type='email'
+												name='email'
+												label='Email'
+												required
+												value={email}
+												onInput={(e) => setEmail((e.target as any).value)}
+											/>
+											<Input
+												type='tel'
+												name='phone'
+												label='Phone'
+												value={phone}
+												onInput={(e) => setPhone((e.target as any).value)}
+											/>
+											<div className='hidden'>
+												<Input
+													type='text'
+													name='robot'
+													value={robot}
+													onInput={(e) => setRobot((e.target as any).value)}
+												/>
+											</div>
 										</div>
 										<div className='flex flex-col items-stretch justify-stretch'>
-											<Textarea name='message' label='Message' required className='h-full resize-none' />
+											<Textarea
+												name='message'
+												label='Message'
+												required
+												className='h-full resize-none'
+												value={message}
+												onInput={(e) => setMessage((e.target as any).value)}
+											/>
 										</div>
 									</div>
-									<div className="flex justify-end">
-										<Button>Send</Button>
+									<div className='mt-4'>
+										<Button type='submit' className='w-full flex justify-center'>
+											Send
+										</Button>
 									</div>
 								</form>
 							</div>
