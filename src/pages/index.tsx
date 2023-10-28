@@ -21,10 +21,6 @@ const Home: NextPage = () => {
 		setCFIsOpen(true);
 	};
 
-	const handleScheduleACall = () => {
-		//
-	};
-
 	return (
 		<MainLayout>
 			{!isUnderMaintenance && (
@@ -132,7 +128,9 @@ const Home: NextPage = () => {
 							</Card>
 						</div>
 						<div className='flex items-center justify-center mt-16'>
-							<Button onClick={() => handleScheduleACall()}>{'Schedule a call'}</Button>
+							<Button href='https://cal.com/d/tVePtj7mNorXk9tVgr5FQQ/10-min-meet-and-greet'>
+								{'Schedule a call'}
+							</Button>
 						</div>
 					</section>
 
