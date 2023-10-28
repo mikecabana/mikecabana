@@ -1,9 +1,10 @@
 import { Fragment, FC, useState, useEffect, FormEvent } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { X } from 'lucide-react';
+import { X, CheckCircle2 } from 'lucide-react';
 import { Input } from './Input';
 import { Button } from './Button';
 import { Textarea } from './Textarea';
+import { Card } from './Card';
 
 type ContactFormProps = {
 	isOpen: boolean;
@@ -17,27 +18,59 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
 	const [phone, setPhone] = useState('');
 	const [message, setMessage] = useState('');
 	const [robot, setRobot] = useState('');
+	const [sending, setSending] = useState(false);
 	const [success, setSuccess] = useState(false);
+	const [failed, setFailed] = useState(false);
 
-	const closeModal = () => {
+	const closeModal: () => void = () => {
 		onClose();
+		resetStates();
 	};
+
+	const resetForm = () => {
+		setName('');
+		setEmail('');
+		setPhone('');
+		setMessage('');
+	};
+
+	const resetStates = () => {
+		setSending(false);
+		setSuccess(false);
+		setFailed(false);
+
+		console.log('resting states')
+	}
 
 	const handleSend = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log({ name, email, phone, message, robot });
 
 		try {
-			await fetch('/api/contact', {
+			setSending(true);
+			const res = await fetch('/api/contact', {
 				method: 'POST',
 				body: JSON.stringify({ name, email, phone, message, robot }),
 				headers: {
-					'Content-Type': 'application/json'
-				}
+					'Content-Type': 'application/json',
+				},
 			});
 
+			if (!res.ok) {
+				const json = await res.json();
+				throw new Error(json)
+			}
+
+			setSending(false);
+			setFailed(false);
 			setSuccess(true);
-		} catch (e) {}
+
+			resetForm();
+		} catch (e) {
+			setSending(false);
+			setFailed(true);
+
+			console.log('an error', e);
+		}
 	};
 
 	useEffect(() => {
@@ -133,11 +166,28 @@ export const ContactForm: FC<ContactFormProps> = ({ isOpen, onClose }) => {
 										</div>
 									</div>
 									<div className='mt-4'>
-										<Button type='submit' className='w-full flex justify-center'>
-											Send
+										<Button
+											type='submit'
+											className='w-full flex justify-center disabled:text-opacity-50 disabled:bg-accent disabled:bg-opacity-10'
+											disabled={success}>
+											{sending ? (
+												'Sending...'
+											) : success ? (
+												<span className='flex items-center'>
+													<CheckCircle2 className='w-5 h-5 mr-2' /> Sent!
+												</span>
+											) : (
+												'Send'
+											)}
 										</Button>
 									</div>
 								</form>
+								{success && (
+									<Button type="button" className='border-0 w-full flex justify-center mt-4' onClick={() => closeModal()}>
+										Done
+									</Button>
+								)}
+								{failed && <Card className='text-red-600 border-red-600 dark:border-red-600 mt-4 px-4 py-2 rounded-xl'>Something went wrong please try again.</Card>}
 							</div>
 						</Transition.Child>
 					</div>

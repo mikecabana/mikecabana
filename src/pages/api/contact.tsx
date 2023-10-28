@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { Resend } from 'resend';
 
 interface Data {
 	name: string;
@@ -9,13 +10,34 @@ interface Data {
 }
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+	const resend = new Resend(process.env.RESEND_API_KEY);
 	const { name, email, phone, message, robot } = req.body as Data;
 
-	// honeypot
-	if (!robot || robot === '') {
-		// send the message
+	try {
+		// honeypot
+		if (robot) {
+			return res.status(200).json('OK');
+		}
+
+		const resendRes = await resend.emails.send({
+			from: `${name} <${email}>`,
+			reply_to: `${name} <${email}>`,
+			to: `${process.env.RECEIVING_EMAIL_ADDRESS}`,
+			subject: `Contact request from ${name} via mikecabana.com`,
+			text: `${message}
+			\n
+			\n
+			${name}
+			${email}
+			${phone}
+			`,
+		});
+
+		return res.status(200).json('OK');
+	} catch (e) {
+		console.log(e);
+		return res.status(400).json('Bad request');
 	}
-	res.status(200).json('OK');
 };
 
 export default handler;
