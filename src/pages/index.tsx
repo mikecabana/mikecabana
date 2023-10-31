@@ -11,6 +11,7 @@ import { ChevronsRightIcon } from 'lucide-react';
 import { Button } from '~/components/ui/Button';
 import { ContactForm } from '~/components/ui/ContactForm';
 import { useState } from 'react';
+import { Services } from '~/components/sections/Services';
 
 const Home: NextPage = () => {
 	const isUnderMaintenance = useUnderMaintenance();
@@ -91,7 +92,9 @@ const Home: NextPage = () => {
 						<h2 className='font-semibold dark:font-normal dark:text-accent-500 text-primary-950 section-title pb-12'>
 							{'How we can work together'}
 						</h2>
-						<div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
+
+						<Services />
+						{/* <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
 							<Card className='relative p-8'>
 								<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-bl from-background-500 to-background-600 dark:from-primary-950 dark:to-primary-900'></div>
 								<h3 className='relative big-text font-black dark:font-normal mb-6 z-10'>
@@ -126,7 +129,7 @@ const Home: NextPage = () => {
 									))}
 								</ul>
 							</Card>
-						</div>
+						</div> */}
 						<div className='flex items-center justify-center mt-16'>
 							<Button href='https://cal.com/d/tVePtj7mNorXk9tVgr5FQQ/10-min-meet-and-greet'>
 								{'Schedule a call'}
