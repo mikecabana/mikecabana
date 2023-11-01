@@ -1,6 +1,6 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
-import { GTM_ID } from '../lib/gtm';
+import { GTM_ID } from './_app';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
