@@ -20,9 +20,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 		}
 
 		const resendRes = await resend.emails.send({
-			from: `${name} <${email}>`,
+			from: `${process.env.FROM_EMAIL_ADDRESS}`,
 			reply_to: `${name} <${email}>`,
-			to: `${process.env.RECEIVING_EMAIL_ADDRESS}`,
+			to: `${process.env.TO_EMAIL_ADDRESS}`,
 			subject: `Contact request from ${name} via mikecabana.com`,
 			text: `${message}
 			\n
