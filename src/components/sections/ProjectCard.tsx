@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { ExternalLinkIcon } from 'lucide-react';
 import { Card } from '../ui/Card';
@@ -10,9 +10,10 @@ interface ProjectCardProps {
     badges?: string[];
     disclaimer?: string;
     extLink?: string;
+    children?: ReactNode;
 }
 
-export const ProjectCard: FC<ProjectCardProps> = ({ label, description, tags, badges, disclaimer, extLink }) => {
+export const ProjectCard: FC<ProjectCardProps> = ({ label, description, tags, badges, disclaimer, extLink, children }) => {
     return (
         <Card>
             <div className="relative p-8">
@@ -53,6 +54,8 @@ export const ProjectCard: FC<ProjectCardProps> = ({ label, description, tags, ba
                         ))}
                     </div>
                 )}
+
+                {children}
 
                 {disclaimer && <p className="text-xs text-gray-400 mt-4">{disclaimer}</p>}
             </div>
