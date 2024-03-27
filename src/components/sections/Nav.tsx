@@ -32,7 +32,7 @@ export const Nav: FC = () => {
                     <ul className="list-none flex justify-end items-center dark:text-accent-500 text-primary-950">
                         <li className="mx-2 px-4 py-1 text-sm dark:text-accent-500 text-primary-950 hover:underline bg-accent-500 bg-opacity-20 rounded-full">
                             <a
-                                href="https://drive.google.com/file/d/15bvCmB0V96MMd_i9-LWSholSC70L0gTV/view?usp=sharing"
+                                href="https://drive.google.com/file/d/1zbf3y1WbfSLUQv5BzEyU0ojnPv7qcxnL/view?usp=sharing"
                                 rel="noopener noreferrer"
                                 target="_blank"
                             >

@@ -97,13 +97,13 @@ export const MobileMenu: FC = () => {
                                             </li>
                                         </a>
                                     ))}
-                                    <li className="transition text-accent-500 bg-accent-500 bg-opacity-20 hover:bg-opacity-5 my-2 p-1 rounded-full text-center">
+                                    <li className="transition text-accent-500 bg-accent-500 bg-opacity-20 hover:bg-opacity-5 my-2 px-4 py-2 rounded-2xl text-center">
                                         <a
-                                            href="https://drive.google.com/file/d/1fp7uVynT4iqXctk7BkOTZZq7fghqMT6X/view?usp=sharing"
+                                            href="https://drive.google.com/file/d/1zbf3y1WbfSLUQv5BzEyU0ojnPv7qcxnL/view?usp=sharing"
                                             rel="noopener noreferrer"
                                             target="_blank"
                                         >
-                                            <small>Download my Resume!</small>
+                                            <small>Download my CV!</small>
                                         </a>
                                     </li>
                                 </ul>
