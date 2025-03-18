@@ -8,11 +8,7 @@ import { Metadata, Viewport } from 'next'
 import { getCookieConsent } from '../actions'
 import './globals.css'
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  themeColor: '#1F1F23',
-}
+export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#1F1F23' }
 
 export const metadata: Metadata = {
   title: 'Mike Cabana',
@@ -61,7 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const showConsentBanner = consent === undefined
 
   return (
-    <html lang="en" className={GeistSans.className}>
+    <html lang="en" suppressHydrationWarning className={GeistSans.className}>
       <GoogleTagManager gtmId={gtmId} />
       <body className="flex flex-col items-center min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
