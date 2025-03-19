@@ -1,5 +1,5 @@
 import { Code } from '@/blocks/code/config'
-import { isAdminOrEditor, isLoggedIn } from '@/lib/access'
+import { isAdminOrEditor } from '@/lib/access'
 import { formatSlug } from '@/lib/utils'
 import {
   BlocksFeature,
@@ -17,44 +17,52 @@ export const Posts: CollectionConfig = {
     useAsTitle: 'title',
     livePreview: {
       url: ({ req, data }) => {
-        return `${req.protocol}//${req.host}/posts/${data.slug}`
+        const encodedParams = new URLSearchParams({
+          slug: data.slug,
+          collection: 'posts',
+          path: `/posts/${data.slug}`,
+          previewSecret: process.env.PREVIEW_SECRET || '',
+        })
+
+        return `${process.env.NEXT_PUBLIC_SERVER_URL}/preview?${encodedParams.toString()}`
       },
     },
-    // preview:
+    preview: ({ slug, collection }: any) => {
+      const encodedParams = new URLSearchParams({
+        slug,
+        collection,
+        path: `/posts/${slug}`,
+        previewSecret: process.env.PREVIEW_SECRET || '',
+      })
+
+      return `${process.env.NEXT_PUBLIC_SERVER_URL}/preview?${encodedParams.toString()}`
+    },
   },
   access: {
-    create: isLoggedIn,
-    read: () => true,
+    create: isAdminOrEditor,
+    read: ({ req }) => {
+      // If there is a user logged in,
+      // let them retrieve all documents
+      if (req.user) return true
+
+      // If there is no user,
+      // restrict the documents that are returned
+      // to only those where `_status` is equal to `published`
+      return { _status: { equals: 'published' } }
+    },
     update: isAdminOrEditor,
     delete: isAdminOrEditor,
   },
-  versions: {
-    drafts: {
-      autosave: {
-        interval: 2000,
-      },
-      schedulePublish: true,
-    },
-    maxPerDoc: 50,
-  },
+  versions: { drafts: { autosave: { interval: 2000 }, schedulePublish: true }, maxPerDoc: 50 },
   fields: [
-    {
-      name: 'title',
-      label: 'Title',
-      type: 'text',
-      required: true,
-    },
+    { name: 'title', label: 'Title', type: 'text', required: true },
     {
       name: 'slug',
       label: 'Slug',
       type: 'text',
       index: true,
-      hooks: {
-        beforeValidate: [formatSlug('title')],
-      },
-      admin: {
-        position: 'sidebar',
-      },
+      hooks: { beforeValidate: [formatSlug('title')] },
+      admin: { position: 'sidebar' },
     },
     {
       type: 'tabs',
@@ -62,11 +70,7 @@ export const Posts: CollectionConfig = {
         {
           label: 'Content',
           fields: [
-            {
-              name: 'heroImage',
-              type: 'upload',
-              relationTo: 'media',
-            },
+            { name: 'heroImage', type: 'upload', relationTo: 'media' },
             {
               name: 'content',
               label: false,
@@ -91,15 +95,9 @@ export const Posts: CollectionConfig = {
             {
               name: 'relatedPosts',
               type: 'relationship',
-              admin: {
-                position: 'sidebar',
-              },
+              admin: { position: 'sidebar' },
               filterOptions: ({ id }) => {
-                return {
-                  id: {
-                    not_in: [id],
-                  },
-                }
+                return { id: { not_in: [id] } }
               },
               hasMany: true,
               relationTo: 'posts',
@@ -147,9 +145,7 @@ export const Posts: CollectionConfig = {
     {
       name: 'authors',
       type: 'relationship',
-      admin: {
-        position: 'sidebar',
-      },
+      admin: { position: 'sidebar' },
       hasMany: true,
       relationTo: 'users',
     },
@@ -159,22 +155,11 @@ export const Posts: CollectionConfig = {
     {
       name: 'populatedAuthors',
       type: 'array',
-      access: {
-        update: () => false,
-      },
-      admin: {
-        disabled: true,
-        readOnly: true,
-      },
+      access: { update: () => false },
+      admin: { disabled: true, readOnly: true },
       fields: [
-        {
-          name: 'id',
-          type: 'text',
-        },
-        {
-          name: 'name',
-          type: 'text',
-        },
+        { name: 'id', type: 'text' },
+        { name: 'name', type: 'text' },
       ],
     },
   ],

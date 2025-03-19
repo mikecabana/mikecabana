@@ -7,6 +7,8 @@ import { GeistSans } from 'geist/font/sans'
 import { Metadata, Viewport } from 'next'
 import { getCookieConsent } from '../actions'
 import './globals.css'
+import { AdminBar } from '@/components/admin-bar'
+import { draftMode } from 'next/headers'
 
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#1F1F23' }
 
@@ -56,6 +58,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const consent = await getCookieConsent()
   const showConsentBanner = consent === undefined
 
+  const { isEnabled } = await draftMode()
+
   return (
     <html lang="en" suppressHydrationWarning className={GeistSans.className}>
       <GoogleTagManager gtmId={gtmId} />
@@ -65,7 +69,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             <header className="w-full">
               <Nav />
             </header>
-            <div className="flex-grow px-2">{children}</div>
+            <div className="flex-grow px-2">
+              <AdminBar adminBarProps={{ preview: isEnabled }} />
+              {children}
+            </div>
             <Footer />
           </div>
         </ThemeProvider>

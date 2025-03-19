@@ -21,11 +21,7 @@ export const isAdminOrSelf: Access = ({ req: { user } }) => {
     }
 
     // If any other type of user, only provide access to themselves
-    return {
-      id: {
-        equals: user.id,
-      },
-    }
+    return { id: { equals: user.id } }
   }
 
   // Reject everyone else
@@ -39,12 +35,10 @@ export const isLoggedIn: Access = ({ req: { user } }) => {
 
 export const isAdminOrEditor: Access = ({ req: { user } }) => {
   if (user) {
-    // If user has role of 'admin'
     if (user.roles?.includes('admin')) {
       return true
     }
 
-    // If user has role of 'admin'
     if (user.roles?.includes('editor')) {
       return true
     }
@@ -55,6 +49,5 @@ export const isAdminOrEditor: Access = ({ req: { user } }) => {
 }
 
 export const isAnonymous: Access = ({ req: { user } }) => {
-  // Return true if user is logged in, false if not
   return true
 }
