@@ -3,7 +3,7 @@
 import { Button } from './ui/button'
 import NextLink from 'next/link'
 import { signGuestbook } from '@/app/actions'
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { Turnstile } from 'next-turnstile'
 
 export type GuestbookFormState = {
@@ -21,6 +21,8 @@ const initialState: GuestbookFormState = {
 export function Guestbook({ signed = false }: { signed: boolean }) {
   const [state, formAction, pending] = useActionState(signGuestbook, initialState)
 
+  const [messageCount, setMessageCount] = useState(0)
+
   return (
     <div className="bg-primary text-background dark:text-foreground dark:bg-accent inline-block p-8 rounded-xl">
       <h3 className="text-xl text-center mb-2">Guestbook</h3>
@@ -28,13 +30,20 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
 
       <form action={formAction}>
         <div className="grid columns-1 gap-4 mb-8 text-foreground">
-          <textarea
-            className="px-4 py-2 rounded-lg w-full"
-            id="message"
-            name="message"
-            placeholder="Message*"
-            required
-          />
+          <div>
+            <textarea
+              className="px-4 py-2 rounded-lg w-full"
+              id="message"
+              name="message"
+              placeholder="Message*"
+              required
+              maxLength={42}
+              onChange={(e) => setMessageCount(e.target.value.length)}
+            />
+            <div className="text-xs text-right text-muted-foreground">
+              {signed ? 0 : messageCount}/42
+            </div>
+          </div>
 
           <input
             className="px-4 py-2 rounded-lg text-foreground"
@@ -53,9 +62,15 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
           />
         </div>
 
-        <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} theme="auto" />
+        <Turnstile
+          siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+          theme="auto"
+          onError={() => setMessageCount(0)}
+        />
 
-        {state.error && <div className="text-center text-red-500 mb-4">{state.message}</div>}
+        {state.error && (
+          <div className="text-xs text-center text-red-500 mb-4">{state.message}</div>
+        )}
 
         <div className="text-center mb-4">
           <Button type="submit" disabled={pending || state.success || signed}>

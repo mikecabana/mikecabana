@@ -12,10 +12,10 @@ const afterChangeHook: CollectionAfterChangeHook = async ({ doc, operation, req 
   const { message, name, email, createdAt } = doc
 
   payload.sendEmail({
-    from: `"${name}" <${email}>`, // sender address
+    from: `payload@mikecabana.com`, // sender address
     to: 'payload@mikecabana.com', // list of receivers
     subject: '👋🏻 Guestbook signed', // Subject line
-    text: `${createdAt} | ${name} | ${message}`, // plain text body
+    text: `${createdAt} | ${name} | ${message} | ${email}`, // plain text body
   })
 }
 

@@ -24,13 +24,17 @@ export default async function GuestsPage() {
             <TooltipProvider key={i} delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger className="cursor-default">
-                  <div className="rounded-full py-2 px-4 bg-black text-background dark:text-foreground m-1">
+                  <div className="rounded-3xl py-2 px-4 bg-black text-background dark:text-foreground m-1">
                     {guest.name ? guest.name + ' : ' : ''}
-                    {guest.message}
+                    {guest.message.length > 42
+                      ? guest.message.slice(0, 42) + '...' + ' '
+                      : guest.message}
                   </div>
                 </TooltipTrigger>
                 <TooltipContent className="font-bold">
-                  {formatDateTime(guest.createdAt, true)}
+                  {guest.message.length > 42
+                    ? formatDateTime(guest.createdAt, true) + ':' + guest.message
+                    : formatDateTime(guest.createdAt, true)}
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>

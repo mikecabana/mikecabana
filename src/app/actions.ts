@@ -4,9 +4,6 @@ import { GuestbookFormState } from '@/components/guestbook'
 import { getPayload } from '@/lib/payload'
 import { validateTurnstileToken } from 'next-turnstile'
 import { cookies as nextCookies, headers as nextHeaders } from 'next/headers'
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function signGuestbook(prevState: GuestbookFormState, formData: FormData) {
   const name = formData.get('name') as string
@@ -32,7 +29,7 @@ export async function signGuestbook(prevState: GuestbookFormState, formData: For
       return {
         success: false,
         error: true,
-        message: 'Invalid CAPTCHA',
+        message: 'Invalid CAPTCHA. Try Again.',
       }
     }
 
@@ -57,13 +54,6 @@ export async function signGuestbook(prevState: GuestbookFormState, formData: For
         message,
         approved: false,
       },
-    })
-
-    await resend.emails.send({
-      from: 'payload@mikecabana.com',
-      subject: 'New Guestbook Entry',
-      to: 'payload@mikecabana.com',
-      text: `New guestbook entry: ${message} (${name}):\n\n${email}`,
     })
 
     return {
