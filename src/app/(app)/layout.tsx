@@ -13,6 +13,7 @@ import { draftMode } from 'next/headers'
 export const viewport: Viewport = { width: 'device-width', initialScale: 1, themeColor: '#1F1F23' }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.SERVER_URL!),
   title: 'Mike Cabana',
   description: 'Code whisperer, espresso not depresso, dog daddy, AI wrangler.',
   classification: 'website',
