@@ -27,7 +27,7 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
       <p className="text-center mb-4 opacity-75">Sign the guestbook!</p>
 
       <form action={formAction}>
-        <div className="grid columns-1 gap-4 mb-8">
+        <div className="grid columns-1 gap-4 mb-8 text-foreground">
           <textarea
             className="px-4 py-2 rounded-lg w-full"
             id="message"
@@ -37,7 +37,7 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
           />
 
           <input
-            className="px-4 py-2 rounded-lg"
+            className="px-4 py-2 rounded-lg text-foreground"
             type="text"
             id="name"
             name="name"
@@ -45,7 +45,7 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
           />
 
           <input
-            className="px-4 py-2 rounded-lg"
+            className="px-4 py-2 rounded-lg text-foreground"
             type="email"
             id="email"
             name="email"
