@@ -2,7 +2,11 @@
 
 import { GuestbookFormState } from '@/components/guestbook'
 import { getPayload } from '@/lib/payload'
+import { validateTurnstileToken } from 'next-turnstile'
 import { cookies as nextCookies, headers as nextHeaders } from 'next/headers'
+import { Resend } from 'resend'
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function signGuestbook(prevState: GuestbookFormState, formData: FormData) {
   const name = formData.get('name') as string
@@ -15,22 +19,16 @@ export async function signGuestbook(prevState: GuestbookFormState, formData: For
   // If using a reverse proxy, ensure the X-Real-IP header is enabled to accurately capture the client's original IP address.
   const ip = headers.get('x-real-ip')
 
-  // Create form data for Turnstile verification
-  const verifyFormData = new FormData()
-  verifyFormData.append('secret', process.env.TURNSTILE_SECRET_KEY ?? '')
-  verifyFormData.append('response', String(cfTurnstileResponse))
-  verifyFormData.append('remoteip', String(ip))
-
-  const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
-
   try {
-    const result = await fetch(url, {
-      body: verifyFormData,
-      method: 'POST',
+    const result = await validateTurnstileToken({
+      token: String(cfTurnstileResponse),
+      remoteip: String(ip),
+      secretKey: process.env.TURNSTILE_SECRET_KEY!,
     })
 
-    const outcome = await result.json()
-    if (!outcome.success) {
+    if (!result.success) {
+      console.log('Invalid CAPTCHA', result)
+
       return {
         success: false,
         error: true,
@@ -59,6 +57,13 @@ export async function signGuestbook(prevState: GuestbookFormState, formData: For
         message,
         approved: false,
       },
+    })
+
+    await resend.emails.send({
+      from: 'payload@mikecabana.com',
+      subject: 'New Guestbook Entry',
+      to: 'payload@mikecabana.com',
+      text: `New guestbook entry: ${message} (${name}):\n\n${email}`,
     })
 
     return {

@@ -1,10 +1,10 @@
 'use client'
 
-import { Turnstile } from './turnstile'
 import { Button } from './ui/button'
 import NextLink from 'next/link'
 import { signGuestbook } from '@/app/actions'
 import { useActionState } from 'react'
+import { Turnstile } from 'next-turnstile'
 
 export type GuestbookFormState = {
   message: string
@@ -53,7 +53,7 @@ export function Guestbook({ signed = false }: { signed: boolean }) {
           />
         </div>
 
-        <Turnstile />
+        <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!} theme="auto" />
 
         {state.error && <div className="text-center text-red-500 mb-4">{state.message}</div>}
 
